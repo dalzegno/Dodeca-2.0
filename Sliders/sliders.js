@@ -67,7 +67,7 @@ attackSlider.oninput=()=>{
   aFrequencySlider.oninput=()=>{
     let aValue = aFrequencySlider.value;
     aFrequencySlider.nextElementSibling.value = aValue + "Hz";
-    tuneKeyboard(getJustScale(aValue,9,"C"));
+    tuneKeyboard(getEqualScale(aValue,9));
   }
 
   function tuneKeyboard(scale){
