@@ -212,6 +212,8 @@ function getJustScale(a,octaves, fundamentalNote) {
   return justScale;
 }
 
+let js = getJustScale(432, 9, "C");
+
 
 
 
