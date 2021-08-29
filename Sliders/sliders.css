@@ -42,7 +42,9 @@ label, output {
 }
 
 .soundControlContainer .ADSRcontainer {
-  width: 20%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   height: 100%;
   margin-left: 2rem;
   display: -webkit-box;
@@ -69,6 +71,55 @@ label, output {
 
 .soundControlContainer .ADSRcontainer .adsrBox output {
   width: 100%;
+}
+
+.soundControlContainer .waveTypeContainer .waveTypeBox {
+  margin-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.soundControlContainer .waveTypeContainer .waveTypeBox ul {
+  list-style: none;
+  display: -ms-grid;
+  display: grid;
+  position: relative;
+}
+
+.soundControlContainer .waveTypeContainer .waveTypeBox ul input[type=radio] {
+  margin-top: .5rem;
+}
+
+.soundControlContainer .waveTypeContainer .waveTypeBox ul span {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.soundControlContainer .lfoContainer {
+  width: 10%;
+}
+
+.soundControlContainer .lfoContainer .lfoBox {
+  margin-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+}
+
+.soundControlContainer .lfoContainer .lfoBox .vibratoSliderBox {
+  margin-top: 0rem;
 }
 
 .soundControlContainer .tuningContainer {

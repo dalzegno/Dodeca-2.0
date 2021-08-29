@@ -38,8 +38,22 @@ function playTone(freq, gain) {
     cosineTerms = new Float32Array(sineTerms.length);
     customWaveform = audioContext.createPeriodicWave(cosineTerms, sineTerms);
     osc.setPeriodicWave(customWaveform); */
-
-    osc.type = "sine";
+    let waveType = "sine"
+    let waveTypeRadio = document.querySelectorAll('input[name="wave"]');
+    for(let w of waveTypeRadio){
+      if(w.checked)
+      waveType = w.value;
+    }
+    if(waveType == "square" || waveType=="sawtooth")
+    {
+      
+      mainGainNode.gain.value = volumeControl.value / 3;
+    }
+    else{
+      mainGainNode.gain.value = volumeControl.value;
+    }
+    console.log(mainGainNode.gain.value);
+    osc.type = waveType;
     /*
     if (type == "custom") {
       osc.setPeriodicWave(customWaveform);
@@ -47,7 +61,19 @@ function playTone(freq, gain) {
       osc.type = type;
     }
   */
+    
+
     osc.frequency.value = freq;
+
+    let lfo = audioContext.createOscillator();
+    let lfoGain = audioContext.createGain();
+    lfo.frequency.setValueAtTime(vibratoSpeed.value, 0);
+    lfo.connect(lfoGain);
+
+    lfoGain.gain.setValueAtTime(vibratoAmount.value, 0);
+    lfoGain.connect(osc.frequency);
+    
+    lfo.start();
     osc.start();
   
     return osc;

@@ -75,6 +75,36 @@
                     </div>
                 </div>
 
+                <div id="waveTypeContainer" class="container waveTypeContainer">
+                    <div class="waveTypeBox">
+                        <label>Waveform Type</label>
+                        <ul>
+                            <li><input  checked="true" type="radio" value="sine" name="wave"><span>Sine</span></input></li>
+                            <li><input type="radio" value="square" name="wave"><span>Square</span></input></li>
+                            <li><input type="radio" value="sawtooth" name="wave"><span>Sawtooth</span></input></li>
+                            <li><input type="radio" value="triangle" name="wave"><span>Triangle</span></input></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="lfoContainer" class="container lfoContainer">
+                    <div class="lfoBox">
+                        <label>Vibrato</label>
+                            <div class="vibratoSliderBox">
+                                <label>Speed</label>
+                                <input id="vibratoSpeed" type="range"
+                                step =".1" min=0 max=30 value="0">
+                                <output></output>
+                            </div>
+                            <div class="vibratoSliderBox">
+                                <label>Amount</label>
+                                <input id="vibratoAmount" type="range"
+                                step =".1" min=0 max=50 value="0">
+                                <output></output>
+                            </div>
+                    </div>
+                </div>
+
                 <div class="container tuningContainer"
                 id="tuningContainer">
                     <div class="tuningBox">
@@ -85,6 +115,9 @@
                         <output></output>
                     </div>
                 </div>
+
+                
+
             </div>
           
 

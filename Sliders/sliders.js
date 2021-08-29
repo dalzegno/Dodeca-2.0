@@ -86,3 +86,19 @@ attackSlider.oninput=()=>{
         }
     }
   }
+
+
+  ////// Vibrato
+
+  let vibratoSpeed = document.getElementById("vibratoSpeed");
+  let vibratoAmount = document.getElementById("vibratoAmount");
+
+  vibratoSpeed.nextElementSibling.value = vibratoSpeed.value ;
+  vibratoAmount.nextElementSibling.value = vibratoAmount.value ;
+
+  vibratoSpeed.oninput=()=>{
+    vibratoSpeed.nextElementSibling.value = vibratoSpeed.value ;
+  }
+  vibratoAmount.oninput=()=>{
+    vibratoAmount.nextElementSibling.value = vibratoAmount.value ;
+  }

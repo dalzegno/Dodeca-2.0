@@ -33,13 +33,12 @@ label, output{
     }
     ///// ADSR
     .ADSRcontainer{
-        width:20%;
+        width:fit-content;
         height:100%;
         margin-left:2rem;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
-        
         .adsrBox{
             display: flex;
             
@@ -53,6 +52,44 @@ label, output{
         }
     }
     /////////
+    ////Waveforms
+    .waveTypeContainer{
+        .waveTypeBox{
+            margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            
+            ul{
+                list-style: none;
+                display: grid;
+                position: relative;
+                input[type=radio]
+                {
+                    margin-top: .5rem;
+                }
+                span{
+                    user-select: none;
+                }
+            }
+        }
+    }
+
+
+    ///////  Vibrato
+
+    .lfoContainer{
+        width:10%;
+        .lfoBox{
+            margin-top: 1rem;
+            display:flex;
+            flex-direction: column;
+            text-align: center;
+
+            .vibratoSliderBox{
+                margin-top: 0rem;
+            }
+        }
+    }
 
     //////// A frequency
     .tuningContainer{
