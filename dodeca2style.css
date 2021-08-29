@@ -27,7 +27,7 @@ body {
 .bgWaves {
   z-index: -10;
   height: 50rem;
-  width: clamp(150vw, 121vw, 100vw);
+  width: 150%;
   position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;

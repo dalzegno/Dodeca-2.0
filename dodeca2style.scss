@@ -28,7 +28,7 @@ body{
 .bgWaves{
     z-index:-10;
     height:50rem;
-    width:clamp(150vw, 1+120vw, 100vw);
+    width:150%;
     position: absolute;
     display: flex;
     justify-content: stretch;
