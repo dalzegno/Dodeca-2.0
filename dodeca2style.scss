@@ -27,6 +27,7 @@ body{
 
 .bgWaves{
     z-index:-10;
+    overflow-x: hidden;
     height:50rem;
     width:150%;
     position: absolute;
