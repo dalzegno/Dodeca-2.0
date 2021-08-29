@@ -28,14 +28,14 @@ body{
 .bgWaves{
     z-index:-10;
     overflow-x: hidden;
-    height:50rem;
-    width:150%;
     position: absolute;
     display: flex;
+    height:90vh;
+    width:150vw;
     margin-left: -10rem;
     path{
         position: absolute;
-        width:100%;
+        width:150%;
         left:1000px;
         transform: scaleX(1.1);
     }
