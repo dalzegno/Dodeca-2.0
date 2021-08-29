@@ -33,12 +33,40 @@ label, output{
     }
     ///// ADSR
     .ADSRcontainer{
+        position: relative;
         width:fit-content;
         height:100%;
         margin-left:2rem;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
+        .adsrTooltip{
+            position: absolute;
+            top:0;
+            right:0;
+            background-color: pink;
+            border:1px solid black;
+            color:black;
+            opacity: .6;
+            width:1rem;
+            height:1rem;
+            text-align:center;
+            border-radius: 50%;
+            user-select: none;
+            cursor: pointer;
+        }
+        .adsrImg{
+            position:absolute;
+            height:10rem;
+            top:-10rem;
+            left:-5rem;
+            opacity:0;
+            transition:all 1s ease;
+            border-radius:1rem;
+        }
+        .adsrTooltip:hover + .adsrImg{
+            opacity:.9;
+        }
         .adsrBox{
             display: flex;
             
@@ -79,12 +107,12 @@ label, output{
 
     .lfoContainer{
         width:10%;
+        height:100%;
         .lfoBox{
             margin-top: 1rem;
             display:flex;
             flex-direction: column;
             text-align: center;
-
             .vibratoSliderBox{
                 margin-top: 0rem;
             }

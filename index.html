@@ -49,6 +49,9 @@
                 </div>
 
                 <div class="container ADSRcontainer">
+                    
+                    <div class="adsrTooltip">?</div>
+                    <img class ="adsrImg" src="Images/ADSR.png">
                     <div class="adsrBox">
                         <label for="attackRange">A</label>
                         <input step=".1" id="attackRange" type="range" 
@@ -89,17 +92,17 @@
 
                 <div id="lfoContainer" class="container lfoContainer">
                     <div class="lfoBox">
-                        <label>Vibrato</label>
+                        <label>LFO(Vibrato)</label>
                             <div class="vibratoSliderBox">
                                 <label>Speed</label>
                                 <input id="vibratoSpeed" type="range"
-                                step =".1" min=0 max=30 value="0">
+                                step =".01" min=0 max=30 value="0">
                                 <output></output>
                             </div>
                             <div class="vibratoSliderBox">
                                 <label>Amount</label>
                                 <input id="vibratoAmount" type="range"
-                                step =".1" min=0 max=50 value="0">
+                                step =".01" min=0 max=50 value="0">
                                 <output></output>
                             </div>
                     </div>

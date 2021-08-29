@@ -42,6 +42,7 @@ label, output {
 }
 
 .soundControlContainer .ADSRcontainer {
+  position: relative;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -57,6 +58,40 @@ label, output {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+}
+
+.soundControlContainer .ADSRcontainer .adsrTooltip {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: pink;
+  border: 1px solid black;
+  color: black;
+  opacity: .6;
+  width: 1rem;
+  height: 1rem;
+  text-align: center;
+  border-radius: 50%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+}
+
+.soundControlContainer .ADSRcontainer .adsrImg {
+  position: absolute;
+  height: 10rem;
+  top: -10rem;
+  left: -5rem;
+  opacity: 0;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  border-radius: 1rem;
+}
+
+.soundControlContainer .ADSRcontainer .adsrTooltip:hover + .adsrImg {
+  opacity: .9;
 }
 
 .soundControlContainer .ADSRcontainer .adsrBox {
@@ -104,6 +139,7 @@ label, output {
 
 .soundControlContainer .lfoContainer {
   width: 10%;
+  height: 100%;
 }
 
 .soundControlContainer .lfoContainer .lfoBox {
