@@ -1,0 +1,132 @@
+
+:root{
+
+
+    //--octaveWidth:clamp(10rem, 25vw, 15rem);
+    --octaveWidth:21rem;
+    --octaveHeight:10rem;
+
+    --whiteHeight:var(--octaveHeight);
+    --blackHeight:calc(var(--whiteHeight)/2);
+
+    --whiteWidth:calc(var(--octaveWidth)/7);
+    --blackWidth:calc(var(--whiteWidth)/2.3);
+
+    --whiteKeyPress: whiteKeyPress 2s ease;
+}
+
+
+button{
+    cursor: pointer;
+}
+#svgsvg{
+    background-color: pink;
+    stroke:red;
+    stroke-width: 10px;
+    z-index: 100;
+}
+/* button:hover{
+    animation: whiteKeyPress 2s ease;
+} */
+
+//////////////////////
+.keyboardWrapper{
+    display: flex;
+    position: relative;
+    width:fit-content;
+    margin:3rem;
+    
+    margin-top:25rem;
+}
+///////////////////////////////////////////////////////
+
+.keyboardHead{
+    position:absolute;
+    display:flex;
+    background-color: #253259f5;
+    top:-10rem;
+    height:10rem;
+    min-width:100%;
+    border-radius: .3rem .3rem .1rem .1rem;
+    cursor:grab;
+}
+
+
+
+/////////
+.keyboardContainer{
+    display: flex;
+    width:fit-content;
+    height: fit-content;
+    background-color: #fff9;
+    z-index: 20;
+    
+    .octave{
+        *{
+            margin:.0005rem;
+            border:transparent;
+        }
+        display: flex;
+        height:var(--octaveHeight);
+        width:var(--octaveWidth);
+        position: relative;
+        .white{
+            box-sizing: content-box;
+            background-image: linear-gradient(to top, #fff1,#ddd);
+            
+            border-bottom: 10px inset #eee9;
+            border-left: .01rem solid #ddd;
+            border-right: .01rem solid #ddd;
+            border-top: none;
+            border-radius: 0 0 5px 5px;
+            height: var(--whiteHeight);
+            width:var(--whiteWidth);
+        }
+        .active.white{
+            border-bottom: .2rem inset #eee;
+            background-color: rgba(255, 192, 203, 0.74);
+            
+            transition: border .3s ease,
+            background-color .2s ease;
+        }
+        .inactive.white{
+            
+            transition: border .2s ease,
+            background-color .2s ease;
+            
+        }
+        .black{
+            position: absolute;
+            z-index: 10;
+            background-color: black;
+            
+            height:var(--blackHeight);
+            width:var(--blackWidth);
+        }
+        .key2{
+            left:calc(var(--whiteWidth) - var(--blackWidth)/2);
+        }
+        .key4{
+            left:calc(var(--whiteWidth)*2 - var(--blackWidth)/2);
+        }
+        .key7{
+            left:calc(var(--whiteWidth)*4 - var(--blackWidth)/2);
+        }
+        .key9{
+            left:calc(var(--whiteWidth)*5 - var(--blackWidth)/2);
+        }
+        .key11{
+            right:calc(var(--whiteWidth) - calc(var(--blackWidth)/2));
+        }
+    }
+    :nth-child(1){
+        justify-content: end;
+        width:fit-content;
+    }
+    :last-child{
+        width:fit-content;
+    }
+}
+
+
+

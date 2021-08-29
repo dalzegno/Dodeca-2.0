@@ -1,0 +1,88 @@
+
+
+
+
+
+
+
+
+label, output{
+    user-select:none;
+}
+.soundControlContainer{
+    color:white;
+    display:flex;
+    width: 50%;
+    height: 100%;
+    *{
+        margin-right:1rem;
+    }
+    .volumeContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width:20%;
+        height:100%;
+        color:white;
+        font-size: 1.5rem;
+        *{
+            margin-top: 1rem;
+            width:100%;
+        }
+    }
+    .ADSRcontainer{
+        width:20%;
+        height:100%;
+        margin-left:2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        
+        .adsrBox{
+            display: flex;
+            
+            input[type=range]{
+                
+                width:5rem;
+            }
+            output{
+                width:100%;
+            }
+        }
+    }
+}
+
+
+.keyboard--sizeControl{
+    
+    width:8rem;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    position:relative;
+    #sliderX{
+        position: absolute;
+        top:1rem;
+        left:1rem;
+        width:6rem;
+    }
+    
+    #lblSliderY{
+        position:absolute;
+        bottom:3rem;
+        left:1rem;
+        transform:rotate(90deg);
+    }
+    .sliderY{
+        position:absolute;
+        bottom:3rem;
+        height:1rem;
+        width:6rem;
+        left:-2rem;
+        transform:rotate(90deg);
+    }
+}
+
+
+

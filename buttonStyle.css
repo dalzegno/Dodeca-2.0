@@ -1,0 +1,157 @@
+.createSynthContainer{
+    font-size: xx-large;
+}
+#btncreateSynth {
+    height:100px;
+    width:200px;
+    top: 100px;
+    font-size: x-large;
+}
+.select{
+    height:50px;
+    width:50x;
+    font-size: x-large;
+}
+#volumeContainer{
+    position:fixed;
+    font-size:2em;;
+    left:420px;
+    top:0px;
+    
+    right:300px;
+}
+#volumeContainer :first-child{
+    position: absolute;
+    left:130px;
+}
+#volumeControl{
+    position: relative;
+    width: 400px;
+    height:200px;
+    bottom:40px;
+    
+}
+.ADSRcontainer{
+    position:fixed;
+    top:100px;
+    left:0px;
+}
+.ADSRitem{
+    width:300px;
+    height:50px;
+    padding:5px;
+}
+.ADSRrange{
+    position: relative;
+    width:500px;
+    height:50px;
+    transform: scaleY(70%);
+}
+.lblADSR{
+    position: relative;
+    left:310px;
+    font-size: small;
+    color:black;
+    font-weight: bold;
+    top:5px;
+}
+.txtADSR{
+    position: relative;
+    bottom:50px;
+    left:310px;
+    height:20px;
+    width: 40px;
+    background-color: blanchedalmond;
+    font-size: medium;
+}
+
+
+
+.sinecontainer{
+    position:fixed;
+    left:950px;
+    top:90px;
+}
+.sineitem{
+    width:200px;
+    height:50px;
+}
+.sinerange{
+    position: relative;
+    width:100px;
+    transform: scaleY(70%);
+}
+.lblsine{
+    position: relative;
+    left:-50px;
+    font-size: small;
+    color:black;
+    font-weight: bold;
+    bottom:10px;
+}
+.txtsine{
+    position: relative;
+    bottom:30px;
+    left:-55px;
+    height:20px;
+    width: 40px;
+    background-color: blanchedalmond;
+    font-size: medium;
+}
+
+.justIntContainer{
+    position: fixed;
+    top:150px;
+    color:black;
+    left:500px;
+    height:100px;
+}
+.justIntContainer :first-child{
+    
+    position: absolute;
+    top:0px;
+    font-size: x-large;
+}
+#justNoteDropdown{
+    border-radius: 20px 20px 20px 20px;
+    bottom:0px;
+}
+.equalTempBtn{
+    position:fixed;
+    font-weight: bold;
+    height:50px;
+    top:200px;
+    left:700px;
+    color:black;
+    background-color: wheat;
+}
+
+.aFreqitem{
+    position:fixed;
+    left:30px;
+    top:0px;
+}
+#aFreqControl{
+    position: relative;
+    transform: scaleY(50%) scaleX(65%) translateX(-35%);
+    top:50px;
+}
+.txtaFreq{
+    position:relative;
+    width: 50px;
+    left:60px;
+}
+.lblaFreq{
+    position: relative;
+    top:20px;
+    left:40px;
+}
+
+#ADSR{
+    position:fixed;
+    left:0PX;
+    top: 350px;
+    width:400px;
+    opacity: 0.8;
+    border-radius: 6px 6px 6px 6px;
+}

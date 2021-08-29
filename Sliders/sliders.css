@@ -1,0 +1,111 @@
+label, output {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.soundControlContainer {
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 50%;
+  height: 100%;
+}
+
+.soundControlContainer * {
+  margin-right: 1rem;
+}
+
+.soundControlContainer .volumeContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  width: 20%;
+  height: 100%;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.soundControlContainer .volumeContainer * {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.soundControlContainer .ADSRcontainer {
+  width: 20%;
+  height: 100%;
+  margin-left: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.soundControlContainer .ADSRcontainer .adsrBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.soundControlContainer .ADSRcontainer .adsrBox input[type=range] {
+  width: 5rem;
+}
+
+.soundControlContainer .ADSRcontainer .adsrBox output {
+  width: 100%;
+}
+
+.keyboard--sizeControl {
+  width: 8rem;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+}
+
+.keyboard--sizeControl #sliderX {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 6rem;
+}
+
+.keyboard--sizeControl #lblSliderY {
+  position: absolute;
+  bottom: 3rem;
+  left: 1rem;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.keyboard--sizeControl .sliderY {
+  position: absolute;
+  bottom: 3rem;
+  height: 1rem;
+  width: 6rem;
+  left: -2rem;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+/*# sourceMappingURL=sliders.css.map */

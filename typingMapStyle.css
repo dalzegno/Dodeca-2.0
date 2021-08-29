@@ -1,0 +1,88 @@
+.keyboardMap{
+    position: relative;
+    display: inline;
+    bottom:30px;
+    height:55px;
+    width:400px;
+}
+#kmapLow{
+    position: fixed;
+    left:550px ;
+}
+#kmapUpper{
+    position: fixed;
+    left:50px;
+}
+.whiteContainer{
+    position:absolute;
+    bottom:0px;
+    display: inline-flex;
+    text-align:center;
+    right:0px;
+}
+.blackContainer{
+    text-align: center;
+    position: absolute;
+    display: inline-flex;
+    right:-15px;
+    top:0px;
+}
+.whiteNoteKey{
+    font-size: large;
+    text-align: center;
+    border: 3px solid black;
+    border-radius: 6px 6px 6px 6px;
+    width:25px;
+    height:25px;
+    background-color: ivory;
+    user-select: none;
+    
+}
+.blackNoteKey{
+    font-size: large;
+    text-align: center;
+    border: 3px solid white;
+    border-radius: 6px 6px 6px 6px;
+    
+    left:50px;
+    width:25px;
+    height:25px;
+    background-color: black;
+    color:white;
+    user-select: none;
+}
+
+
+.invisKey{
+    
+    color:transparent;
+    background-color: transparent;
+    border: 3px solid transparent;
+    border-radius: 6px 6px 6px 6px;
+    
+    width:25px;
+    pointer-events: none;
+    user-select: none;
+}
+
+.dropdown{
+    position: absolute;
+    margin:5px;
+    background-color:ivory;
+    height:30px;
+    width: 40px;
+    border-radius: 20px 20px 20px 20px;
+    border: 3px solid salmon;
+    font-size: large;
+}
+.pickers{
+    position:absolute;
+}
+#octavePicker1,
+#octavePickerA{
+    left:0px;
+}
+#notePicker1,
+#notePickerA{
+    left:40px;
+}
