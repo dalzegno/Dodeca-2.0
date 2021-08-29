@@ -85,8 +85,8 @@ let start;
                 
                 if (!dataset["pressed"]) {
                     start = audioContext.currentTime;
-                    console.log("PRESSED");
-                    console.log(keypressList[event.code], "Note Info");
+
+                    //console.log(keypressList[event.code], "Note Info");
 
                     let _classname = target.className;
                     _classname = _classname.replace("inactive", "active");
@@ -164,6 +164,6 @@ let start;
       delete gainList[octave][dataset["notenumber"]];
       delete oscList[octave][dataset["notenumber"]];
       delete dataset["pressed"];
-      console.log("released");
+      //console.log("released");
     }
   }

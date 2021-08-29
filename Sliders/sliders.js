@@ -72,18 +72,12 @@ attackSlider.oninput=()=>{
 
   function tuneKeyboard(scale){
     let octaves = document.getElementsByClassName("octave");
-    console.log(octaves);
     for(let i=0;i<octaves.length;i++){
         
         let note = octaves[i].firstChild;
         for(let j=0;j<octaves[i].childElementCount;j++){
-            
-            console.log(note);
-            
             let note_octave = note.dataset["octave"];
-            console.log(note_octave+"octave");
             let note_notenumber = note.dataset["notenumber"];
-            console.log(note_notenumber + "notenumber"); 
 
             note.dataset["frequency"] = scale[note_octave][note_notenumber];
             

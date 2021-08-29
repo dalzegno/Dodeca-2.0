@@ -200,15 +200,15 @@ function getJustScale(a,octaves, fundamentalNote) {
           justScale[i][11] = fundamental * tones[11];    //B
   
       }
-      console.log(justScale[4][9], "BEFORE");
+      //console.log(justScale[4][9], "BEFORE");
       var tuneCorrection = aCache/(justScale[4][9]);
-      console.log(tuneCorrection);
+      //console.log(tuneCorrection);
       for(let i = 1; i < justScale.length;i++){
         for(let j = 0; j <= 11;j++){
         justScale[i][j] = justScale[i][j] * tuneCorrection;
         }
       }
-      console.log(justScale[4][9], "AFTER");
+     // console.log(justScale[4][9], "AFTER");
   return justScale;
 }
 

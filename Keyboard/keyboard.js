@@ -82,7 +82,11 @@ keyboardHead.appendChild(soundControls);
 
 
 var scale =  getEqualScale(9, 442);
-let keyboard = createKeyboardKeys(5, 2, scale);
+let keyboard;
+if(screen.width < 600)
+keyboard = createKeyboardKeys(2, 2, scale);
+else
+keyboard = createKeyboardKeys(5, 2, scale);
 
 keyboardWrapper.appendChild(keyboardHead);
 keyboardWrapper.appendChild(keyboard);

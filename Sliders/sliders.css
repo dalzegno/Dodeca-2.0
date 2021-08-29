@@ -75,7 +75,7 @@ label, output {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-left: 40%;
+  margin-left: auto;
 }
 
 .soundControlContainer .tuningContainer .tuningBox {
@@ -97,7 +97,7 @@ label, output {
 }
 
 .keyboard--sizeControl {
-  width: 8rem;
+  min-width: 8rem;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -109,16 +109,22 @@ label, output {
   position: relative;
 }
 
+.keyboard--sizeControl #lblSliderX {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+}
+
 .keyboard--sizeControl #sliderX {
   position: absolute;
-  top: 1rem;
+  bottom: 1rem;
   left: 1rem;
   width: 6rem;
 }
 
 .keyboard--sizeControl #lblSliderY {
   position: absolute;
-  bottom: 3rem;
+  top: 3rem;
   left: 1rem;
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
@@ -126,7 +132,7 @@ label, output {
 
 .keyboard--sizeControl .sliderY {
   position: absolute;
-  bottom: 3rem;
+  top: 3rem;
   height: 1rem;
   width: 6rem;
   left: -2rem;
