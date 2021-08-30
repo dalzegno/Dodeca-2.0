@@ -119,6 +119,34 @@ label, output{
         }
     }
 
+    //////// Harmonizer
+    .harmonizerContainer{
+            
+        .harmonizerBox{
+            margin-top: 1rem;
+            display:flex;
+            flex-direction: column;
+            width:10rem;
+            height:100%;
+            text-align: center;
+            position:relative;
+            
+            label{
+               position:absolute;
+               top:0;
+               left:2rem;
+            }
+            #harmonizerCheckbox{
+                margin-right:auto;
+                display: inline;
+            }
+            #harmonizerSlider{
+                margin-top:1rem;
+            }
+        }
+    }
+
+
     //////// A frequency
     .tuningContainer{
         display: flex;
@@ -173,6 +201,5 @@ label, output{
         transform:rotate(90deg);
     }
 }
-
 
 

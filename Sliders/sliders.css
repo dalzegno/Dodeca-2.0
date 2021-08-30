@@ -158,6 +158,36 @@ label, output {
   margin-top: 0rem;
 }
 
+.soundControlContainer .harmonizerContainer .harmonizerBox {
+  margin-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 10rem;
+  height: 100%;
+  text-align: center;
+  position: relative;
+}
+
+.soundControlContainer .harmonizerContainer .harmonizerBox label {
+  position: absolute;
+  top: 0;
+  left: 2rem;
+}
+
+.soundControlContainer .harmonizerContainer .harmonizerBox #harmonizerCheckbox {
+  margin-right: auto;
+  display: inline;
+}
+
+.soundControlContainer .harmonizerContainer .harmonizerBox #harmonizerSlider {
+  margin-top: 1rem;
+}
+
 .soundControlContainer .tuningContainer {
   display: -webkit-box;
   display: -ms-flexbox;

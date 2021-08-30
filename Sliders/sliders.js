@@ -102,3 +102,13 @@ attackSlider.oninput=()=>{
   vibratoAmount.oninput=()=>{
     vibratoAmount.nextElementSibling.value = vibratoAmount.value ;
   }
+
+
+  /////// Harmonizer
+  let harmonizerSlider = document.getElementById("harmonizerSlider");
+  harmonizerSlider.nextElementSibling.value= harmonizerSlider.value;
+    
+  harmonizerSlider.oninput =()=>{
+    harmonizerSlider.nextElementSibling.value= harmonizerSlider.value;
+
+  }

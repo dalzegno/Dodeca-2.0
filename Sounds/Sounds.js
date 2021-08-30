@@ -1,9 +1,12 @@
 let audioContext = new (window.AudioContext || window.webkitAudioContext)();
 let oscList = [];
 let gainList = [];
+let harmonizerGainList = [];
+let harmonizerOscList = [];
+
+let harmonizerChecked = document.getElementById("harmonizerCheckbox");
 
 let mainGainNode = null;
-
 
 
 let attackTime = attackSlider.value/10;
@@ -16,14 +19,21 @@ mainGainNode.connect(audioContext.destination);
 
 
 
-for (i=0; i<9; i++) {
+
+for (i=0; i<100; i++) {
     oscList[i] = {};
 }
 
-for(i=0;i<50;i++){
+for(i=0;i<100;i++){
   gainList[i] = {};
 }
+for(i=0;i<100;i++){
+  harmonizerGainList[i] = {};
+}
 
+for(i=0;i<100;i++){
+  harmonizerOscList[i] = {};
+}
 
 
 
@@ -52,7 +62,6 @@ function playTone(freq, gain) {
     else{
       mainGainNode.gain.value = volumeControl.value;
     }
-    console.log(mainGainNode.gain.value);
     osc.type = waveType;
     /*
     if (type == "custom") {
@@ -85,12 +94,22 @@ function playTone(freq, gain) {
 }
 
 
+function notePressed_Gain(gainNode, gainAmount){
+  const now = audioContext.currentTime;
+  gainNode.gain.setValueAtTime(0,0);
+  gainNode.gain.linearRampToValueAtTime(gainAmount, now + attackTime);
+  gainNode.gain.linearRampToValueAtTime(sLevel * gainAmount, now + attackTime + decayTime);
 
-let start;
+  gainNode.connect(mainGainNode);
+}
+
+
+
+
+  let start;
   function notePressed(event, key) {
     
       var target = event.srcElement;
-      //console.log(event.keydown, "(starttime)note start");
     const now = audioContext.currentTime;
     let keyPressed;
     let keyValid;
@@ -112,27 +131,50 @@ let start;
                 if (!dataset["pressed"]) {
                     start = audioContext.currentTime;
 
-                    //console.log(keypressList[event.code], "Note Info");
 
                     let _classname = target.className;
                     _classname = _classname.replace("inactive", "active");
                     target.className = _classname;
                 
-                    let octave = +dataset["octave"];
-                    gainList[octave][dataset["notenumber"]] = makeGain();
-                    let noteGain = gainList[octave][dataset["notenumber"]];
-                    oscList[octave][dataset["notenumber"]] = playTone(dataset["frequency"], gainList[octave][dataset["notenumber"]]);
-                    noteGain.gain.setValueAtTime(0,0);
-                    noteGain.gain.linearRampToValueAtTime(1, now + attackTime);
-                    noteGain.gain.linearRampToValueAtTime(sLevel, now + attackTime + decayTime);
-                    noteGain.connect(mainGainNode);
+                    let noteOctave = +dataset["octave"];
+
+                    gainList[noteOctave][dataset["notenumber"]] = makeGain();
+                    let noteGain = gainList[noteOctave][dataset["notenumber"]];
+                    oscList[noteOctave][dataset["notenumber"]] = playTone(dataset["frequency"], gainList[noteOctave][dataset["notenumber"]]);
+                   
+                    let harmonizerSlider = document.getElementById("harmonizerSlider");
+                    let harmonizerNoteNumber = parseInt(`${dataset["notenumber"]}`);
+                    harmonizerNoteNumber += parseInt(harmonizerSlider.value)
+                    
+                    
+                    let harmonizerOctave = parseInt(noteOctave);
+                    if(harmonizerNoteNumber > 11){
+                      harmonizerNoteNumber -= 12;
+                      harmonizerOctave += 1;
+                    }
+                    else if(harmonizerNoteNumber < 0){
+                      harmonizerNoteNumber += 12;
+                      harmonizerOctave -= 1;
+                    }
+                    let harmonizerPitch = document.getElementById(harmonizerOctave +""+ harmonizerNoteNumber);
+                    harmonizerGainList[noteOctave][dataset["notenumber"]]= makeGain();
+                    let harmonizerGain = harmonizerGainList[noteOctave][dataset["notenumber"]];
+                    harmonizerOscList[noteOctave][dataset["notenumber"]]= playTone(harmonizerPitch.dataset["frequency"], harmonizerGainList[noteOctave][dataset["notenumber"]]);
+
+                    if(harmonizerChecked.checked == true)
+                    notePressed_Gain(harmonizerGain, 1);
+                    
+                    notePressed_Gain(noteGain,1);
+                    
                     dataset["pressed"] = "yes";
                 }
             }
   }
 
+ 
+
   
-  function noteReleased(event) {
+  async function noteReleased(event) {
     let dataset = event.currentTarget.dataset;
     const now = audioContext.currentTime;
     var target = event.srcElement;
@@ -147,49 +189,71 @@ let start;
     
     if (dataset && dataset["pressed"] ) {
 
-      let _classname = target.className;
-                    _classname = _classname.replace("active", "inactive");
-                    target.className = _classname;
-        //aTime = attackTime;
- 
-      let octave = +dataset["octave"];
-      let noteGain = gainList[octave][dataset["notenumber"]];
-     // oscList[octave][dataset["note"]].connect(mainGainNode);
-      if((start + attackTime) >=now){
-          let timePassed = now - start;
-          //let gainValue = 1/(aTime/timePassed);
-          let gainValue = noteGain.gain.value;
-          noteGain.gain.setValueAtTime(gainValue,0);
+     let _classname = target.className;
+      _classname = _classname.replace("active", "inactive");
+      target.className = _classname;
 
-          let timeLeft = attackTime - timePassed;
-          //noteGain.gain.linearRampToValueAtTime(gainValue, now + timeLeft);
-          noteGain.gain.linearRampToValueAtTime(1, now + timeLeft);
-          noteGain.gain.linearRampToValueAtTime(sLevel, now + timeLeft + decayTime);
-          noteGain.gain.linearRampToValueAtTime(0, now + timeLeft + decayTime + releaseTime);
-        
-      }
-      else if((start + attackTime + decayTime)>= now){
-        let timePassed = (now - start);
-        let TimeMinusAttack = timePassed - attackTime;
-        let timePassinvert = decayTime - TimeMinusAttack;
-        //let timePassInvertRatio = (dTime-TimeMinusAttack)/dTime;
-        let gainBetween = 1 - sLevel;
-        ////let gainValue = timePassInvertRatio * gainBetween + sustainLevel;
-        let gainValue = noteGain.gain.value;
-        noteGain.gain.setValueAtTime(gainValue,0);
-        noteGain.gain.linearRampToValueAtTime(sLevel, now + timePassinvert);
-   
-        noteGain.gain.linearRampToValueAtTime(0, now + timePassinvert + releaseTime);
-      }
-      else if((start + attackTime + decayTime)<= now) {
-        let gainValue = noteGain.gain.value;
-      noteGain.gain.setValueAtTime(gainValue, 0);
-      noteGain.gain.linearRampToValueAtTime(0, audioContext.currentTime + releaseTime);
-      }
-      oscList[octave][dataset["notenumber"]].stop(now + attackTime + decayTime + releaseTime + 1);
-      delete gainList[octave][dataset["notenumber"]];
-      delete oscList[octave][dataset["notenumber"]];
+
+      let noteOctave = +dataset["octave"];
+
+      let noteGain = gainList[noteOctave][dataset["notenumber"]];
+      let harmonizerGain = harmonizerGainList[noteOctave][dataset["notenumber"]];
+
+      let noteOscillator = oscList[noteOctave][dataset["notenumber"]];
+      let harmonizerOscillator = harmonizerOscList[noteOctave][dataset["notenumber"]];
+
+      noteReleased_Gain(noteGain, 1, noteOscillator);
+      noteReleased_Gain(harmonizerGain, 1, harmonizerOscillator);
+
+      delete gainList[noteOctave][dataset["notenumber"]];
+      delete oscList[noteOctave][dataset["notenumber"]];
+      delete harmonizerGainList[noteOctave][dataset["notenumber"]];
+      delete harmonizerOscList[noteOctave][dataset["notenumber"]];
+
       delete dataset["pressed"];
-      //console.log("released");
     }
+  }
+
+
+
+
+
+
+  function noteReleased_Gain(gainNode, gainAmount, oscillator){
+    let now = audioContext.currentTime;
+
+      if((start + attackTime) >=now){
+        let timePassed = now - start;
+        //let gainValue = 1/(aTime/timePassed);
+        let gainValue = gainNode.gain.value;
+        gainNode.gain.setValueAtTime(gainValue,0);
+
+        let timeLeft = attackTime - timePassed;
+        //gainNode.gain.linearRampToValueAtTime(gainValue, now + timeLeft);
+        gainNode.gain.linearRampToValueAtTime(1 * gainAmount, now + timeLeft);
+        gainNode.gain.linearRampToValueAtTime(sLevel * gainAmount, now + timeLeft + decayTime);
+        gainNode.gain.linearRampToValueAtTime(0, now + timeLeft + decayTime + releaseTime);
+      
+    }
+    else if((start + attackTime + decayTime)>= now){
+      let timePassed = (now - start);
+      let TimeMinusAttack = timePassed - attackTime;
+      let timePassinvert = decayTime - TimeMinusAttack;
+      //let timePassInvertRatio = (dTime-TimeMinusAttack)/dTime;
+      let gainBetween = 1 - sLevel;
+      ////let gainValue = timePassInvertRatio * gainBetween + sustainLevel;
+      let gainValue = gainNode.gain.value;
+      gainNode.gain.setValueAtTime(gainValue,0);
+      gainNode.gain.linearRampToValueAtTime(sLevel  * gainAmount, now + timePassinvert);
+
+      gainNode.gain.linearRampToValueAtTime(0, now + timePassinvert + releaseTime);
+    }
+    else if((start + attackTime + decayTime)<= now) {
+      let gainValue = gainNode.gain.value;
+      gainNode.gain.setValueAtTime(gainValue, 0);
+      gainNode.gain.linearRampToValueAtTime(0, audioContext.currentTime + releaseTime);
+    
+    }
+    
+    oscillator.stop(audioContext.currentTime + attackTime + decayTime + releaseTime +1);
   }
