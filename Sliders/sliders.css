@@ -117,6 +117,7 @@ label, output {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  width: 10rem;
 }
 
 .soundControlContainer .waveTypeContainer .waveTypeBox ul {
@@ -186,6 +187,18 @@ label, output {
 
 .soundControlContainer .harmonizerContainer .harmonizerBox #harmonizerSlider {
   margin-top: 1rem;
+}
+
+.soundControlContainer .harmonizerContainer .harmonizerBox #hGainDiv {
+  margin-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.soundControlContainer .harmonizerContainer .harmonizerBox #hGainDiv #harmonizerGain {
+  width: 3rem;
 }
 
 .soundControlContainer .tuningContainer {

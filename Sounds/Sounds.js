@@ -5,6 +5,9 @@ let harmonizerGainList = [];
 let harmonizerOscList = [];
 
 let harmonizerChecked = document.getElementById("harmonizerCheckbox");
+harmonizerChecked.checked = 0;
+let harmonizerGainAmount = document.getElementById("harmonizerGain").value;
+let harmonizerOutOfBounds;
 
 let mainGainNode = null;
 
@@ -140,30 +143,47 @@ function notePressed_Gain(gainNode, gainAmount){
 
                     gainList[noteOctave][dataset["notenumber"]] = makeGain();
                     let noteGain = gainList[noteOctave][dataset["notenumber"]];
-                    oscList[noteOctave][dataset["notenumber"]] = playTone(dataset["frequency"], gainList[noteOctave][dataset["notenumber"]]);
-                   
+                    oscList[noteOctave][dataset["notenumber"]] = playTone(dataset["frequency"], noteGain);
+
+
                     let harmonizerSlider = document.getElementById("harmonizerSlider");
                     let harmonizerNoteNumber = parseInt(`${dataset["notenumber"]}`);
                     harmonizerNoteNumber += parseInt(harmonizerSlider.value)
                     
                     
-                    let harmonizerOctave = parseInt(noteOctave);
+                    let harmonizerOctave = parseFloat(noteOctave);
                     if(harmonizerNoteNumber > 11){
                       harmonizerNoteNumber -= 12;
                       harmonizerOctave += 1;
                     }
-                    else if(harmonizerNoteNumber < 0){
+                    else if(harmonizerNoteNumber < 0 && harmonizerOctave > 0){
                       harmonizerNoteNumber += 12;
-                      harmonizerOctave -= 1;
+                      harmonizerOctave-=1;
                     }
-                    let harmonizerPitch = document.getElementById(harmonizerOctave +""+ harmonizerNoteNumber);
+                    if(harmonizerOctave <= 0)
+                    harmonizerOctave ==0;
+
                     harmonizerGainList[noteOctave][dataset["notenumber"]]= makeGain();
                     let harmonizerGain = harmonizerGainList[noteOctave][dataset["notenumber"]];
-                    harmonizerOscList[noteOctave][dataset["notenumber"]]= playTone(harmonizerPitch.dataset["frequency"], harmonizerGainList[noteOctave][dataset["notenumber"]]);
-
-                    if(harmonizerChecked.checked == true)
-                    notePressed_Gain(harmonizerGain, 1);
+                   
+                    //let harmonizerPitch = document.getElementById(harmonizerOctave +""+ harmonizerNoteNumber);
+                   
+                    //harmonizerOscList[noteOctave][dataset["notenumber"]]= playTone(harmonizerPitch.dataset["frequency"], harmonizerGainList[noteOctave][dataset["notenumber"]]);
                     
+                    if(harmonizerOctave == 0 && harmonizerNoteNumber < 9)
+                    harmonizerOscList[noteOctave][dataset["notenumber"]]=playTone(dataset["frequency"], noteGain);
+                    else
+                    harmonizerOscList[noteOctave][dataset["notenumber"]]= playTone(scale[harmonizerOctave][harmonizerNoteNumber], harmonizerGainList[noteOctave][dataset["notenumber"]]);
+                   
+
+
+                    if(harmonizerOctave == 0 && harmonizerNoteNumber < 9 && harmonizerChecked.checked == true)
+                    notePressed_Gain(harmonizerGain, 0);
+                    if(harmonizerChecked.checked == true)
+                    notePressed_Gain(harmonizerGain, harmonizerGainAmount);
+                   
+                 
+
                     notePressed_Gain(noteGain,1);
                     
                     dataset["pressed"] = "yes";
@@ -203,7 +223,8 @@ function notePressed_Gain(gainNode, gainAmount){
       let harmonizerOscillator = harmonizerOscList[noteOctave][dataset["notenumber"]];
 
       noteReleased_Gain(noteGain, 1, noteOscillator);
-      noteReleased_Gain(harmonizerGain, 1, harmonizerOscillator);
+
+      noteReleased_Gain(harmonizerGain, harmonizerGainAmount, harmonizerOscillator);
 
       delete gainList[noteOctave][dataset["notenumber"]];
       delete oscList[noteOctave][dataset["notenumber"]];
@@ -254,6 +275,6 @@ function notePressed_Gain(gainNode, gainAmount){
       gainNode.gain.linearRampToValueAtTime(0, audioContext.currentTime + releaseTime);
     
     }
-    
+
     oscillator.stop(audioContext.currentTime + attackTime + decayTime + releaseTime +1);
   }

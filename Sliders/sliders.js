@@ -43,7 +43,6 @@ sustainSlider.nextElementSibling.value = sustainSlider.value + "%";
 attackSlider.oninput=()=>{
     attackSlider.nextElementSibling.value = Math.round(attackSlider.value /10 *100)/100 + "s";
     attackTime = attackSlider.value/10;
-    console.log(attackSlider.value/10)
   }
   decaySlider.oninput=()=>{
     decaySlider.nextElementSibling.value = Math.round(decaySlider.value /10 *100)/100 + "s";
@@ -56,7 +55,6 @@ attackSlider.oninput=()=>{
   sustainSlider.oninput=()=>{
       sustainSlider.nextElementSibling.value =(sustainSlider.value + "%");
       sLevel = sustainSlider.value/100;
-      console.log(sustainSlider.value/100);
   }
 
   // A frequency
@@ -67,7 +65,9 @@ attackSlider.oninput=()=>{
   aFrequencySlider.oninput=()=>{
     let aValue = aFrequencySlider.value;
     aFrequencySlider.nextElementSibling.value = aValue + "Hz";
-    tuneKeyboard(getEqualScale(9, aValue));
+    scale = getEqualScale(9, aValue);
+    //scale = getJustScale(aValue, 10, "C")
+    tuneKeyboard(scale);
   }
 
   function tuneKeyboard(scale){
@@ -105,10 +105,18 @@ attackSlider.oninput=()=>{
 
 
   /////// Harmonizer
+
   let harmonizerSlider = document.getElementById("harmonizerSlider");
   harmonizerSlider.nextElementSibling.value= harmonizerSlider.value;
     
   harmonizerSlider.oninput =()=>{
     harmonizerSlider.nextElementSibling.value= harmonizerSlider.value;
-
   }
+
+  let harmonizerGainSlider = document.getElementById("harmonizerGain");
+  harmonizerGainSlider.nextElementSibling.value = harmonizerGainSlider.value;
+  harmonizerGainSlider.oninput=()=>{
+    harmonizerGainAmount = harmonizerGainSlider.value;
+    harmonizerGainSlider.nextElementSibling.value = harmonizerGainSlider.value;
+  }
+  

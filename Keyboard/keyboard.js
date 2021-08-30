@@ -18,7 +18,7 @@ function createKeyboardKeys(octaves, startingOctave, freq){
             key.className = keys[i+9] + " inactive";
             key.id= `${startingOctave-1}${i+9}`;
             octave.appendChild(key);
-            key.dataset["octave"] = startingOctave;
+            key.dataset["octave"] = startingOctave -1;
             key.dataset["notenumber"] = i+9;
             key.dataset["frequency"] =  freq[startingOctave-1][i+9];
     }
@@ -81,12 +81,10 @@ let soundControls = document.getElementById("soundControlContainer");
 keyboardHead.appendChild(soundControls);
 
 
-var scale =  getEqualScale(9, 442);
+//var scale =  getEqualScale(9, 442);
+var scale = getJustScale(432,10,"C")
 let keyboard;
-if(screen.width < 600)
-keyboard = createKeyboardKeys(2, 3, scale);
-else
-keyboard = createKeyboardKeys(5, 2, scale);
+keyboard = createKeyboardKeys(5, 1, scale);
 
 keyboardWrapper.appendChild(keyboardHead);
 keyboardWrapper.appendChild(keyboard);
