@@ -117,7 +117,9 @@ label, output {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 10rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .soundControlContainer .waveTypeContainer .waveTypeBox ul {
@@ -127,8 +129,13 @@ label, output {
   position: relative;
 }
 
-.soundControlContainer .waveTypeContainer .waveTypeBox ul input[type=radio] {
-  margin-top: .5rem;
+.soundControlContainer .waveTypeContainer .waveTypeBox ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
 }
 
 .soundControlContainer .waveTypeContainer .waveTypeBox ul span {
@@ -201,14 +208,14 @@ label, output {
   width: 3rem;
 }
 
-.soundControlContainer .tuningContainer {
+.soundControlContainer .aPitchContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin-left: auto;
 }
 
-.soundControlContainer .tuningContainer .tuningBox {
+.soundControlContainer .aPitchContainer .aPitchBox {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -222,7 +229,7 @@ label, output {
   text-align: center;
 }
 
-.soundControlContainer .tuningContainer .tuningBox * {
+.soundControlContainer .aPitchContainer .aPitchBox * {
   margin-top: 1rem;
 }
 

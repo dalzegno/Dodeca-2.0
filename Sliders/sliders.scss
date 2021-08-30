@@ -86,14 +86,18 @@ label, output{
             margin-top: 1rem;
             display: flex;
             flex-direction: column;
-            width:10rem;
+            width:fit-content;
             ul{
                 list-style: none;
                 display: grid;
+               
                 position: relative;
+                li{
+                    display: flex;
+                    justify-content: start;
+                }
                 input[type=radio]
                 {
-                    margin-top: .5rem;
                 }
                 span{
                     user-select: none;
@@ -156,10 +160,10 @@ label, output{
 
 
     //////// A frequency
-    .tuningContainer{
+    .aPitchContainer{
         display: flex;
         margin-left:auto;
-        .tuningBox{
+        .aPitchBox{
         display:flex;
         flex-direction: column;
         justify-content: start;

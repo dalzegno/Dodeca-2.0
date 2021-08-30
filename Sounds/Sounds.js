@@ -23,18 +23,18 @@ mainGainNode.connect(audioContext.destination);
 
 
 
-for (i=0; i<100; i++) {
+for (i=0; i<9; i++) {
     oscList[i] = {};
 }
 
-for(i=0;i<100;i++){
+for(i=0;i<50;i++){
   gainList[i] = {};
 }
-for(i=0;i<100;i++){
+for(i=0;i<50;i++){
   harmonizerGainList[i] = {};
 }
 
-for(i=0;i<100;i++){
+for(i=0;i<9;i++){
   harmonizerOscList[i] = {};
 }
 
@@ -98,7 +98,7 @@ function playTone(freq, gain) {
 
 
 function notePressed_Gain(gainNode, gainAmount){
-  const now = audioContext.currentTime;
+  let now = audioContext.currentTime;
   gainNode.gain.setValueAtTime(0,0);
   gainNode.gain.linearRampToValueAtTime(gainAmount, now + attackTime);
   gainNode.gain.linearRampToValueAtTime(sLevel * gainAmount, now + attackTime + decayTime);
@@ -179,7 +179,7 @@ function notePressed_Gain(gainNode, gainAmount){
 
                     if(harmonizerOctave == 0 && harmonizerNoteNumber < 9 && harmonizerChecked.checked == true)
                     notePressed_Gain(harmonizerGain, 0);
-                    if(harmonizerChecked.checked == true)
+                    else if(harmonizerChecked.checked == true)
                     notePressed_Gain(harmonizerGain, harmonizerGainAmount);
                    
                  
@@ -222,6 +222,7 @@ function notePressed_Gain(gainNode, gainAmount){
       let noteOscillator = oscList[noteOctave][dataset["notenumber"]];
       let harmonizerOscillator = harmonizerOscList[noteOctave][dataset["notenumber"]];
 
+
       noteReleased_Gain(noteGain, 1, noteOscillator);
 
       noteReleased_Gain(harmonizerGain, harmonizerGainAmount, harmonizerOscillator);
@@ -232,6 +233,8 @@ function notePressed_Gain(gainNode, gainAmount){
       delete harmonizerOscList[noteOctave][dataset["notenumber"]];
 
       delete dataset["pressed"];
+
+
     }
   }
 
@@ -277,4 +280,5 @@ function notePressed_Gain(gainNode, gainAmount){
     }
 
     oscillator.stop(audioContext.currentTime + attackTime + decayTime + releaseTime +1);
+
   }

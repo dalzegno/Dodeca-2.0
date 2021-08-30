@@ -1,0 +1,97 @@
+.tuningContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  color: white;
+}
+
+.tuningContainer .tuningBox {
+  position: absolute;
+  top: .3rem;
+  right: 5rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.tuningContainer .tuningBox .justIntonationBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #19223df5;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: .3rem;
+  margin: auto;
+  border-radius: 5px;
+}
+
+.tuningContainer .tuningBox .justIntonationBox label {
+  margin: .5rem;
+}
+
+.tuningContainer .tuningBox .justIntonationBox ul {
+  list-style: none;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+}
+
+.tuningContainer .tuningBox li {
+  width: 3rem;
+  height: 1.5rem;
+  margin: .1rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.tuningContainer .tuningBox button {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  border: 1px solid #fff4;
+}
+
+.tuningContainer .tuningBox .equalIntonationBox {
+  background-color: #2b50bdb9;
+  height: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.tuningContainer .tuningBox .equalIntonationBox button {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: .2rem;
+  background-color: #ff914dd0;
+}
+/*# sourceMappingURL=tuningControlsStyle.css.map */

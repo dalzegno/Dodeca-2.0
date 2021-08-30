@@ -75,11 +75,11 @@ function getJustScale(a,octaves, fundamentalNote) {
 
  
   let j = 0;
-  if(fundamentalNote == "C"){
+  if(fundamentalNote == "C" ||fundamentalNote == "B#"){
       fundamental = c;
       j = 0;
   }
-  else if(fundamentalNote == "Db"){
+  else if(fundamentalNote == "Db" ||fundamentalNote == "C#"){
     fundamental = db;
     j = 11;
   }
@@ -87,19 +87,19 @@ function getJustScale(a,octaves, fundamentalNote) {
     fundamental = d;
     j = 10;
   }
-  else if(fundamentalNote == "Eb"){
+  else if(fundamentalNote == "Eb" || fundamentalNote == "D#"){
     fundamental = eb;
     j = 9;
   }
-  else if(fundamentalNote == "E"){
+  else if(fundamentalNote == "E" || fundamentalNote == "Fb"){
     fundamental = e;
     j = 8;
   }
-  else if(fundamentalNote == "F"){
+  else if(fundamentalNote == "F" || fundamentalNote == "E#"){
     fundamental = f;
     j = 7;
   }
-  else if(fundamentalNote == "Gb"){
+  else if(fundamentalNote == "Gb" || fundamentalNote == "F#"){
     fundamental = gb;
     j = 6;
   }
@@ -107,7 +107,7 @@ function getJustScale(a,octaves, fundamentalNote) {
     fundamental = g;
     j = 5;
   }
-  else if(fundamentalNote == "Ab"){
+  else if(fundamentalNote == "Ab" || fundamentalNote == "G#"){
     fundamental = ab;
     j = 4;
   }
@@ -115,11 +115,11 @@ function getJustScale(a,octaves, fundamentalNote) {
     fundamental = a *2;
     j = 3;
   }
-  else if(fundamentalNote == "Bb"){
+  else if(fundamentalNote == "Bb" || fundamentalNote == "A#"){
     fundamental = bb;
     j = 2;
   }
-  else if(fundamentalNote == "B"){
+  else if(fundamentalNote == "B" || fundamentalNote == "Cb"){
     fundamental = b;
     j = 1;
   }
@@ -138,12 +138,12 @@ function getJustScale(a,octaves, fundamentalNote) {
       justScale[0][11] = fundamental * tones[11];  //B
   for (i = 1; i < octaves; i++){
     justScale[i] = [];
-        if(fundamentalNote == "C"){
+        if(fundamentalNote == "C"||fundamentalNote == "B#"){
           fundamental = fundamental * 2;
         } else{}
           justScale[i][0] = fundamental * tones[0] ;   //C
 
-          if(fundamentalNote == "Db"){
+          if(fundamentalNote == "Db" ||fundamentalNote == "C#"){
             fundamental = fundamental * 2;
           }else{}
           justScale[i][1] = fundamental * tones[1];    //Db
@@ -153,22 +153,22 @@ function getJustScale(a,octaves, fundamentalNote) {
           }else{}
           justScale[i][2]= fundamental * tones[2];      //D
 
-          if(fundamentalNote == "Eb"){   
+          if(fundamentalNote == "Eb" || fundamentalNote == "D#"){   
             fundamental = fundamental * 2;
           }else{}
           justScale[i][3] = fundamental * tones[3];     //Eb
 
-          if(fundamentalNote == "E"){   
+          if(fundamentalNote == "E" || fundamentalNote == "Fb"){   
             fundamental = fundamental * 2;
           }else{}
           justScale[i][4] = fundamental * tones[4];     //E
 
-          if(fundamentalNote == "F"){   
+          if(fundamentalNote == "F" || fundamentalNote == "E#"){   
             fundamental = fundamental * 2;
           }else{}
           justScale[i][5]= fundamental * tones[5];      //F
 
-          if(fundamentalNote == "Gb"){   
+          if(fundamentalNote == "Gb" || fundamentalNote == "F#"){   
             fundamental = fundamental * 2;
           }else{}
           justScale[i][6] = fundamental * tones[6];     //Gb
@@ -178,7 +178,7 @@ function getJustScale(a,octaves, fundamentalNote) {
           }else{}
           justScale[i][7] = fundamental * tones[7];      //G
 
-          if(fundamentalNote == "Ab"){   
+          if(fundamentalNote == "Ab" || fundamentalNote == "G#"){   
             fundamental = fundamental * 2;
           }else{}
           justScale[i][8] = fundamental * tones[8];      //Ab
@@ -189,12 +189,12 @@ function getJustScale(a,octaves, fundamentalNote) {
 
           justScale[i][9] = fundamental * tones[9];      //A
 
-          if(fundamentalNote == "Bb"){   
+          if(fundamentalNote == "Bb" || fundamentalNote == "A#"){   
             fundamental = fundamental * 2;
           }else{}
           justScale[i][10] = fundamental * tones[10];    //Bb
 
-          if(fundamentalNote == "B"){   
+          if(fundamentalNote == "B" || fundamentalNote == "Cb"){   
             fundamental = fundamental * 2;
           }else{}
           justScale[i][11] = fundamental * tones[11];    //B

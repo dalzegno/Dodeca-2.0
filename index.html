@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="sliders.css">
     <link rel="stylesheet" href="typingMapStyle.css" type="text/css"> -->
     <link rel="stylesheet" href="Sliders/sliderStyling.css">
-   
+    <link rel="stylesheet" href="Tuning/tuningControlsStyle.css">
     <link rel="stylesheet" href="dodeca2style.css">
     <link rel="stylesheet" href="Keyboard/keyboardStyle.css">
     <link rel="stylesheet" href="Sliders/sliders.css">
@@ -27,6 +27,43 @@
         </svg>
 
         <div class="siteWrapper">
+
+            <!-- TUNING CONTROLS-->
+            <div class = "tuningContainer">
+                <div class="tuningBox">
+                    <h2>Tuning</h2>
+                    <div class="equalIntonationBox">
+                        <button value="btnEqual" id="btnEqualIntonation">Equal Intonation</button>
+                    </div>
+                    <div class ="justIntonationBox">
+                        <label>Just intonation</label>
+                        <ul id="justTuningButtons">
+                            <li><button value="Cb">Cb</button></li>
+                            <li><button value="C">C</button></li>
+                            <li><button value="C#">C#</button></li>
+                            <li><button value="Db">Db</button></li>
+                            <li><button value="D">D</button></li>
+                            <li><button value="D#">D#</button></li>
+                            <li><button value="Eb">Eb</button></li>
+                            <li><button value="E">E</button></li>
+                            <li><button value="E#">E#</button></li>
+                            <li><button value="Fb">Fb</button></li>
+                            <li><button value="F">F</button></li>
+                            <li><button value="F#">F#</button></li>
+                            <li><button value="Gb">Gb</button></li>
+                            <li><button value="G">G</button></li>
+                            <li><button value="G#">G#</button></li>
+                            <li><button value="Ab">Ab</button></li>
+                            <li><button value="A">A</button></li>
+                            <li><button value="A#">A#</button></li>
+                            <li><button value="Bb">Bb</button></li>
+                            <li><button value="B">B</button></li>
+                            <li><button value="B#">B#</button></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <!-- SOUND CONTROLS-->
             <div class="container soundControlContainer"
                 id= "soundControlContainer">
@@ -56,13 +93,13 @@
                     <div class="adsrBox">
                         <label for="attackRange">A</label>
                         <input step=".1" id="attackRange" type="range" 
-                        min=".1" max="100" value=".1">
+                        min=".1" max="100" value="1">
                         <output></output>
                     </div>
                     <div class="adsrBox">
                         <label for="decayRange">D</label>
                         <input step=".1" id="decayRange" type="range" 
-                        min=".1" max="100" value=".1">
+                        min=".1" max="100" value="1">
                         <output></output>
                     </div>
                     <div class="adsrBox">
@@ -74,7 +111,7 @@
                     <div class="adsrBox">
                         <label for="releaseRange">R</label>
                         <input step=".1" id="releaseRange" type="range" 
-                        min=".5" max="100" value=".5">
+                        min=".5" max="100" value="1">
                         <output></output>
                     </div>
                 </div>
@@ -126,9 +163,9 @@
                     </div>
                 </div>
 
-                <div class="container tuningContainer"
-                id="tuningContainer">
-                    <div class="tuningBox">
+                <div class="container aPitchContainer"
+                id="aPitchContainer">
+                    <div class="aPitchBox">
                         <label for="aFrequencyRange">A frequency:</label>
                         <input id="aFrequencyRange" 
                         type="range" min="420" max="480"
@@ -154,8 +191,13 @@
            Q300,-40,300,100"></path>
         </svg>
          -->
+
+   
+
+
         <script src="Sounds/frequencies.js"></script>
-       
+        <script src="Tuning/tuningControls.js"></script>
+
        
         <script src="draggable.js"></script>
 

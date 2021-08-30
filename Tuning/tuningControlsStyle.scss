@@ -1,0 +1,63 @@
+.tuningContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color:white;
+    .tuningBox{
+        position:absolute;
+        top:.3rem;
+        right:5rem;
+        width:fit-content;
+        .justIntonationBox{
+            display: flex;
+            flex-direction: column;
+            background-color: #19223df5;
+            //background-color: #ff9d4ddc;
+            width:fit-content;
+            padding:.3rem;
+            margin:auto;
+            border-radius: 5px;
+            label{
+                margin:.5rem;
+            }
+            ul{
+                list-style: none;
+                display:grid;
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+     
+        li{
+            width:3rem;
+            height:1.5rem;
+            margin:.1rem;
+            justify-content: center;
+            align-items: center;
+            
+            
+        }
+        button{
+            width:100%;
+            height:100%;
+            background-color: rgba(0,0,0,0);
+            color: white;
+            border:1px solid #fff4;
+            }
+            .equalIntonationBox{
+                background-color: #2b50bdb9;
+                height:3rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                    button{
+                        height:fit-content;
+                        width:fit-content;
+                        padding:.2rem;
+                        background-color: #ff914dd0;
+                    }
+                }
+    }
+}
+
+
