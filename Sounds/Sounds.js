@@ -3,6 +3,7 @@ let oscList = [];
 let gainList = [];
 let harmonizerGainList = [];
 let harmonizerOscList = [];
+let harmonizerActiveList = [];
 
 let harmonizerChecked = document.getElementById("harmonizerCheckbox");
 harmonizerChecked.checked = 0;
@@ -36,6 +37,10 @@ for(i=0;i<50;i++){
 
 for(i=0;i<9;i++){
   harmonizerOscList[i] = {};
+}
+
+for(i=0;i<9;i++){
+  harmonizerActiveList[i] = {};
 }
 
 
@@ -140,6 +145,7 @@ function notePressed_Gain(gainNode, gainAmount){
                     target.className = _classname;
                 
                     let noteOctave = +dataset["octave"];
+                    let noteNumber = +dataset["notenumber"];
 
                     gainList[noteOctave][dataset["notenumber"]] = makeGain();
                     let noteGain = gainList[noteOctave][dataset["notenumber"]];
@@ -179,10 +185,14 @@ function notePressed_Gain(gainNode, gainAmount){
 
                     if(harmonizerOctave == 0 && harmonizerNoteNumber < 9 && harmonizerChecked.checked == true)
                     notePressed_Gain(harmonizerGain, 0);
-                    else if(harmonizerChecked.checked == true)
+                    else if(harmonizerChecked.checked == true){
                     notePressed_Gain(harmonizerGain, harmonizerGainAmount);
-                   
-                 
+                    
+                    harmonizerActiveList[noteOctave][noteNumber] = document.getElementById(`${harmonizerOctave}${harmonizerNoteNumber}`);
+                    let harmonizerKey = harmonizerActiveList[noteOctave][noteNumber];
+                    harmonizerKey.className = harmonizerKey.className.replace("inactive", "active");
+                    
+                    }
 
                     notePressed_Gain(noteGain,1);
                     
@@ -213,8 +223,17 @@ function notePressed_Gain(gainNode, gainAmount){
       _classname = _classname.replace("active", "inactive");
       target.className = _classname;
 
-
       let noteOctave = +dataset["octave"];
+      let noteNumber = +dataset["notenumber"];
+
+      if(harmonizerActiveList[noteOctave][noteNumber] !== null
+        && harmonizerActiveList[noteOctave][noteNumber] !== undefined){
+      harmonizerKey = harmonizerActiveList[noteOctave][noteNumber];
+      harmonizerKey.className = harmonizerKey.className.replace("active", "inactive");
+      }
+      else{
+        harmonizerKey ="";
+      }
 
       let noteGain = gainList[noteOctave][dataset["notenumber"]];
       let harmonizerGain = harmonizerGainList[noteOctave][dataset["notenumber"]];
@@ -231,6 +250,7 @@ function notePressed_Gain(gainNode, gainAmount){
       delete oscList[noteOctave][dataset["notenumber"]];
       delete harmonizerGainList[noteOctave][dataset["notenumber"]];
       delete harmonizerOscList[noteOctave][dataset["notenumber"]];
+      delete harmonizerActiveList[noteOctave][dataset["notenumber"]];
 
       delete dataset["pressed"];
 

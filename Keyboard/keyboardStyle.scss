@@ -79,19 +79,6 @@ button{
             height: var(--whiteHeight);
             width:var(--whiteWidth);
         }
-        .active.white{
-            border-bottom: .2rem inset #eee;
-            background-color: rgba(255, 192, 203, 0.74);
-            
-            transition: border .3s ease,
-            background-color .2s ease;
-        }
-        .inactive.white{
-            
-            transition: border .2s ease,
-            background-color .2s ease;
-            
-        }
         .black{
             position: absolute;
             z-index: 10;
@@ -100,6 +87,29 @@ button{
             height:var(--blackHeight);
             width:var(--blackWidth);
         }
+        .active.white{
+            border-bottom: .2rem inset #eee;
+            background-color: rgba(255, 192, 203, 0.74);
+            
+            transition: border .3s ease,
+            background-color .2s ease;
+        }
+        .inactive.white{
+            transition: border .2s ease,
+            background-color .2s ease;
+        }
+        .active.black{
+            border-bottom: .2rem inset #eee;
+            background-color: rgba(77, 70, 71, 0.781);
+            
+            transition: border .1s ease,
+            background-color .2s ease;
+        }
+        .inactive.black{
+            transition: border .1s ease,
+            background-color .2s ease;
+        }
+        
         .key2{
             left:calc(var(--whiteWidth) - var(--blackWidth)/2);
         }

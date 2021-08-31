@@ -84,6 +84,14 @@ button {
   width: var(--whiteWidth);
 }
 
+.keyboardContainer .octave .black {
+  position: absolute;
+  z-index: 10;
+  background-color: black;
+  height: var(--blackHeight);
+  width: var(--blackWidth);
+}
+
 .keyboardContainer .octave .active.white {
   border-bottom: .2rem inset #eee;
   background-color: rgba(255, 192, 203, 0.74);
@@ -96,12 +104,16 @@ button {
   transition: border .2s ease, background-color .2s ease;
 }
 
-.keyboardContainer .octave .black {
-  position: absolute;
-  z-index: 10;
-  background-color: black;
-  height: var(--blackHeight);
-  width: var(--blackWidth);
+.keyboardContainer .octave .active.black {
+  border-bottom: .2rem inset #eee;
+  background-color: rgba(77, 70, 71, 0.781);
+  -webkit-transition: border .1s ease, background-color .2s ease;
+  transition: border .1s ease, background-color .2s ease;
+}
+
+.keyboardContainer .octave .inactive.black {
+  -webkit-transition: border .1s ease, background-color .2s ease;
+  transition: border .1s ease, background-color .2s ease;
 }
 
 .keyboardContainer .octave .key2 {
