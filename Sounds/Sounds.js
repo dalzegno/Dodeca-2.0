@@ -58,7 +58,7 @@ function playTone(freq, gain) {
     osc.setPeriodicWave(customWaveform); */
     let waveType = "sine"
     let waveTypeRadio = document.querySelectorAll('input[name="wave"]');
-    for(let w of waveTypeRadio){
+  /*   for(let w of waveTypeRadio){
       if(w.checked)
       waveType = w.value;
     }
@@ -69,7 +69,7 @@ function playTone(freq, gain) {
     }
     else{
       mainGainNode.gain.value = volumeControl.value;
-    }
+    } */
     osc.type = waveType;
     /*
     if (type == "custom") {

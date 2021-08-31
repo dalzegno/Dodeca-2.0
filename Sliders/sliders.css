@@ -1,3 +1,8 @@
+:root {
+  --soundControlColor1:#0002;
+  --soundControlColor2:#0004;
+}
+
 label, output {
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -15,7 +20,7 @@ label, output {
 }
 
 .soundControlContainer * {
-  margin-right: 1rem;
+  padding-right: 1rem;
 }
 
 .soundControlContainer .volumeContainer {
@@ -33,22 +38,23 @@ label, output {
   width: 10%;
   height: 100%;
   color: white;
+  background-color: #fff1;
   font-size: 1.5rem;
-  margin-left: 1rem;
 }
 
 .soundControlContainer .volumeContainer * {
+  margin-left: 1rem;
   margin-top: 1rem;
   width: 100%;
 }
 
 .soundControlContainer .ADSRcontainer {
+  background-color: var(--soundControlColor1);
   position: relative;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   height: 100%;
-  margin-left: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -99,6 +105,7 @@ label, output {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-left: 2rem;
 }
 
 .soundControlContainer .ADSRcontainer .adsrBox input[type=range] {
@@ -107,6 +114,11 @@ label, output {
 
 .soundControlContainer .ADSRcontainer .adsrBox output {
   width: 100%;
+}
+
+.soundControlContainer .waveTypeContainer {
+  background-color: var(--soundControlColor2);
+  padding-left: 1rem;
 }
 
 .soundControlContainer .waveTypeContainer .waveTypeBox {
@@ -141,6 +153,11 @@ label, output {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: start;
+  margin-bottom: .3rem;
+}
+
+.soundControlContainer .waveTypeContainer .waveTypeBox ul li span {
+  margin-left: .2rem;
 }
 
 .soundControlContainer .waveTypeContainer .waveTypeBox ul span {
@@ -151,6 +168,8 @@ label, output {
 }
 
 .soundControlContainer .lfoContainer {
+  background-color: var(--soundControlColor1);
+  padding-left: 1rem;
   width: 10%;
   height: 100%;
 }
@@ -173,6 +192,11 @@ label, output {
 
 .soundControlContainer .lfoContainer .lfoBox .vibratoSliderBox {
   margin-top: 0rem;
+}
+
+.soundControlContainer .harmonizerContainer {
+  background-color: var(--soundControlColor2);
+  padding-left: 1rem;
 }
 
 .soundControlContainer .harmonizerContainer .harmonizerBox {
@@ -217,9 +241,14 @@ label, output {
   width: 3rem;
 }
 
+.soundControlContainer .delayContainer {
+  background-color: var(--soundControlColor1);
+}
+
 .soundControlContainer .delayContainer .delayBox {
+  margin-left: 2rem;
   margin-top: 1rem;
-  width: 12rem;
+  width: 15rem;
 }
 
 .soundControlContainer .delayContainer .delayBox .checkBoxLabel {
@@ -231,7 +260,7 @@ label, output {
 }
 
 .soundControlContainer .delayContainer .delayBox .checkBoxLabel #loopDelayCheckbox {
-  margin-left: 2rem;
+  margin-left: 1rem;
 }
 
 .soundControlContainer .delayContainer .delayBox .delaySliders {

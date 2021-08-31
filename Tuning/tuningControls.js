@@ -7,7 +7,7 @@ let justTuningButton = justTuningButtonsUl.firstElementChild;
 for(i=0; i<justTuningButtonsUl.childElementCount;i++){
     justTuningButtonsList[i] = justTuningButton;
     justTuningButton.firstChild.addEventListener("mousedown", makeButtonActive, false)
-    console.log(justTuningButton)
+   
     justTuningButton = justTuningButton.nextElementSibling;
     
 }
