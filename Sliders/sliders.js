@@ -131,3 +131,50 @@ attackSlider.oninput=()=>{
     harmonizerGainSlider.nextElementSibling.value = harmonizerGainSlider.value;
   }
   
+  ////// Delay
+  let delayTimeSlider=document.getElementById("delayTime");
+  let delayFeedbackSlider=document.getElementById("delayFeedback");
+  let delayGainSlider=document.getElementById("delayGain");
+  delayTimeSlider.previousElementSibling.value=delayTimeSlider.value+"s";
+  delayFeedbackSlider.previousElementSibling.value=Math.floor(delayFeedbackSlider.value *100) +"%";
+  delayGainSlider.previousElementSibling.value=Math.floor(delayGainSlider.value *100)+"%" 
+
+ /*  feedback.gain.value = delayFeedbackSlider.value;
+  delay.delayTime.value = delayTimeSlider.value;
+  delayGain.gain.value = delayGainSlider.value; */
+
+  delayTimeSlider.oninput=()=>{
+    delayTimeSlider.previousElementSibling.value=delayTimeSlider.value+"s";
+    
+  }
+  delayFeedbackSlider.oninput=()=>{
+    delayFeedbackSlider.previousElementSibling.value=Math.floor(delayFeedbackSlider.value *100) +"%";
+   
+  }
+  delayGainSlider.oninput=()=>{
+    delayGainSlider.previousElementSibling.value=Math.floor(delayGainSlider.value *100)+"%" ;
+   
+  }
+
+  let delayCheckbox = document.getElementById("delayCheckbox");
+  delayCheckbox.onchange=()=>{
+    if(delayCheckbox.checked == true){
+      
+    console.log("checked")
+    }
+    else if(delayCheckbox.checked == false){
+      
+      for(i=0;i<delayList.length;i++)
+      {
+        console.log(delayList)
+      delayList[i][0].disconnect();
+      delayList[i][1].disconnect();
+      delayList[i][2].disconnect();
+      
+      }
+      delayList = [];
+      
+    console.log("unchecked")
+    
+    }
+  }

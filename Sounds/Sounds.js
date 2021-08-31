@@ -7,6 +7,7 @@ let harmonizerActiveList = [];
 
 let harmonizerChecked = document.getElementById("harmonizerCheckbox");
 harmonizerChecked.checked = 0;
+
 let harmonizerGainAmount = document.getElementById("harmonizerGain").value;
 let harmonizerOutOfBounds;
 
@@ -89,6 +90,9 @@ function playTone(freq, gain) {
 
     lfoGain.gain.setValueAtTime(vibratoAmount.value, 0);
     lfoGain.connect(osc.frequency);
+
+    
+    
     
     lfo.start();
     osc.start();
@@ -102,11 +106,46 @@ function playTone(freq, gain) {
 }
 
 
+let delayList = [];
+let delay = audioContext.createDelay(11);
+let feedback = audioContext.createGain();
+let delayGain = audioContext.createGain();
+
 function notePressed_Gain(gainNode, gainAmount){
   let now = audioContext.currentTime;
   gainNode.gain.setValueAtTime(0,0);
   gainNode.gain.linearRampToValueAtTime(gainAmount, now + attackTime);
   gainNode.gain.linearRampToValueAtTime(sLevel * gainAmount, now + attackTime + decayTime);
+
+  
+
+  if(delayCheckbox.checked ==true){
+    delay = audioContext.createDelay(11);
+    feedback = audioContext.createGain();
+    delayGain = audioContext.createGain();
+    if(delayList.length == 0)
+      delayItem=0;
+      else
+    delayItem=delayList.length ++;
+
+    delayList[delayItem] = [delay, feedback, delayGain];
+
+   delayList[delayItem][0].delayTime.value = delayTimeSlider.value;
+  delayList[delayItem][1].gain.value = delayFeedbackSlider.value;
+  delayList[delayItem][2].gain.value = delayGainSlider.value;
+ 
+  delayList[delayItem][0].connect(delayList[delayItem][1]);
+  delayList[delayItem][1].connect(delayList[delayItem][0]);
+    
+  delayList[delayItem][0].connect( delayList[delayItem][2]);
+    gainNode.connect(delayList[delayItem][0]);
+    delayList[delayItem][2].connect(mainGainNode)
+  console.log("Feedback" +delay.delayTime.value)
+
+  console.log(delayList)
+  }
+
+  
 
   gainNode.connect(mainGainNode);
 }
@@ -243,7 +282,8 @@ function notePressed_Gain(gainNode, gainAmount){
       let noteOscillator = oscList[noteOctave][dataset["notenumber"]];
       let harmonizerOscillator = harmonizerOscList[noteOctave][dataset["notenumber"]];
 
-
+      
+      
       noteReleased_Gain(noteGain, 1, noteOscillator);
 
       noteReleased_Gain(harmonizerGain, harmonizerGainAmount, harmonizerOscillator);
@@ -300,7 +340,12 @@ function notePressed_Gain(gainNode, gainAmount){
       gainNode.gain.linearRampToValueAtTime(0, audioContext.currentTime + releaseTime);
     
     }
+    
+    //oscillator.stop(audioContext.currentTime + attackTime + decayTime + releaseTime +1);
 
-    oscillator.stop(audioContext.currentTime + attackTime + decayTime + releaseTime +1);
-
+    
+   
   }
+
+
+  

@@ -166,6 +166,39 @@ label, output{
         }
     }
 
+    /////// Delay
+
+    .delayContainer{
+        .delayBox{
+            margin-top: 1rem;
+            width:12rem;
+            .checkBoxLabel{
+                margin-bottom: .2rem;
+               
+            }
+           
+            .delaySliders{
+                width:100%;
+                .delaySliderBox{
+                    margin-top: .3rem;
+                    width:100%;
+                    display: grid;
+                    grid-template-rows: 1fr 1fr;
+                    grid-template-columns: 3fr .1fr;
+                    input[type=range]{
+                        grid-column:1/span 2;
+                    }
+                    label{
+                        grid-row:1;
+                    }
+                    output{
+                        grid-row:1;
+                    }
+                }
+            }
+        }
+    }
+
 
     //////// A frequency
     .aPitchContainer{

@@ -217,6 +217,46 @@ label, output {
   width: 3rem;
 }
 
+.soundControlContainer .delayContainer .delayBox {
+  margin-top: 1rem;
+  width: 12rem;
+}
+
+.soundControlContainer .delayContainer .delayBox .checkBoxLabel {
+  margin-bottom: .2rem;
+}
+
+.soundControlContainer .delayContainer .delayBox .delaySliders {
+  width: 100%;
+}
+
+.soundControlContainer .delayContainer .delayBox .delaySliders .delaySliderBox {
+  margin-top: .3rem;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+  -ms-grid-columns: 3fr .1fr;
+      grid-template-columns: 3fr .1fr;
+}
+
+.soundControlContainer .delayContainer .delayBox .delaySliders .delaySliderBox input[type=range] {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/span 2;
+}
+
+.soundControlContainer .delayContainer .delayBox .delaySliders .delaySliderBox label {
+  -ms-grid-row: 1;
+  grid-row: 1;
+}
+
+.soundControlContainer .delayContainer .delayBox .delaySliders .delaySliderBox output {
+  -ms-grid-row: 1;
+  grid-row: 1;
+}
+
 .soundControlContainer .aPitchContainer {
   display: -webkit-box;
   display: -ms-flexbox;
