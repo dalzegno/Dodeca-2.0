@@ -226,6 +226,14 @@ label, output {
   margin-bottom: .2rem;
 }
 
+.soundControlContainer .delayContainer .delayBox .checkBoxLabel * {
+  margin-right: 0;
+}
+
+.soundControlContainer .delayContainer .delayBox .checkBoxLabel #loopDelayCheckbox {
+  margin-left: 2rem;
+}
+
 .soundControlContainer .delayContainer .delayBox .delaySliders {
   width: 100%;
 }

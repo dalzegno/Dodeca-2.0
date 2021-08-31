@@ -50,7 +50,6 @@ function playTone(freq, gain) {
     let osc = audioContext.createOscillator();
     
     osc.connect(gain);
-    
     //let type = wavePicker.options[wavePicker.selectedIndex].value;
 
 /*     sineTerms = new Float32Array([s1,s2,s3,s4,s5]);
@@ -161,6 +160,7 @@ function notePressed_Gain(gainNode, gainAmount){
     let keyPressed;
     let keyValid;
 
+    
         if(event.code == key){
           keyValid = key;
         }
@@ -234,6 +234,8 @@ function notePressed_Gain(gainNode, gainAmount){
 
                     notePressed_Gain(noteGain,1);
                     
+
+                    
                     dataset["pressed"] = "yes";
                 }
             }
@@ -288,6 +290,7 @@ function notePressed_Gain(gainNode, gainAmount){
 
       noteReleased_Gain(harmonizerGain, harmonizerGainAmount, harmonizerOscillator);
 
+      
       delete gainList[noteOctave][dataset["notenumber"]];
       delete oscList[noteOctave][dataset["notenumber"]];
       delete harmonizerGainList[noteOctave][dataset["notenumber"]];
@@ -295,6 +298,10 @@ function notePressed_Gain(gainNode, gainAmount){
       delete harmonizerActiveList[noteOctave][dataset["notenumber"]];
 
       delete dataset["pressed"];
+
+      //console.log("Yo:)")
+      //let count=0;
+      //gainList.forEach(function(x){console.log(count + x); count++})
 
 
     }

@@ -156,21 +156,15 @@ attackSlider.oninput=()=>{
    
   }
 
-  let delayCheckbox = document.getElementById("delayCheckbox");
-  delayCheckbox.onchange=()=>{
-    if(delayCheckbox.checked == true){
-      
-    console.log("checked")
-    }
-    else if(delayCheckbox.checked == false){
-      
+  let delayLoopCheckbox = document.getElementById("loopDelayCheckbox");
+  delayLoopCheckbox.onchange=()=>{
+    if(delayLoopCheckbox.checked == false){
       for(i=0;i<delayList.length;i++)
       {
         console.log(delayList)
       delayList[i][0].disconnect();
       delayList[i][1].disconnect();
       delayList[i][2].disconnect();
-      
       }
       delayList = [];
       

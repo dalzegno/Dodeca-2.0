@@ -174,7 +174,12 @@ label, output{
             width:12rem;
             .checkBoxLabel{
                 margin-bottom: .2rem;
-               
+               *{
+                   margin-right:0;
+               }
+               #loopDelayCheckbox{
+                   margin-left: 2rem;
+               }
             }
            
             .delaySliders{
