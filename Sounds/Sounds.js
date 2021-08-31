@@ -191,7 +191,6 @@ function notePressed_Gain(gainNode, gainAmount){
                     harmonizerActiveList[noteOctave][noteNumber] = document.getElementById(`${harmonizerOctave}${harmonizerNoteNumber}`);
                     let harmonizerKey = harmonizerActiveList[noteOctave][noteNumber];
                     harmonizerKey.className = harmonizerKey.className.replace("inactive", "active");
-                    
                     }
 
                     notePressed_Gain(noteGain,1);
@@ -221,6 +220,7 @@ function notePressed_Gain(gainNode, gainAmount){
 
      let _classname = target.className;
       _classname = _classname.replace("active", "inactive");
+      _classname = _classname.replace("ininactive", "inactive");
       target.className = _classname;
 
       let noteOctave = +dataset["octave"];
@@ -230,7 +230,9 @@ function notePressed_Gain(gainNode, gainAmount){
         && harmonizerActiveList[noteOctave][noteNumber] !== undefined){
       harmonizerKey = harmonizerActiveList[noteOctave][noteNumber];
       harmonizerKey.className = harmonizerKey.className.replace("active", "inactive");
-      }
+      harmonizerKey.className = harmonizerKey.className.replace("ininactive", "inactive");
+     
+    }
       else{
         harmonizerKey ="";
       }
