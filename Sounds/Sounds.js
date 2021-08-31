@@ -58,10 +58,11 @@ function playTone(freq, gain) {
     osc.setPeriodicWave(customWaveform); */
     let waveType = "sine"
     let waveTypeRadio = document.querySelectorAll('input[name="wave"]');
-  /*   for(let w of waveTypeRadio){
+  for(let w of waveTypeRadio){
       if(w.checked)
       waveType = w.value;
     }
+    /*
     if(waveType == "square" || waveType=="sawtooth")
     {
       
