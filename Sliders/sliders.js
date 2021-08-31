@@ -1,13 +1,13 @@
 
 
 let sliderX = document.getElementById("sliderX");
-let sliderY = document.getElementById("sliderY");
+/* let sliderY = document.getElementById("sliderY");
 
 sliderY.oninput=()=>{
     document.documentElement.style
     .setProperty('--octaveHeight', sliderY.value+"rem");
     
-}
+} */
 sliderX.oninput=()=>{
     document.documentElement.style
     .setProperty('--octaveWidth', sliderX.value+"rem");

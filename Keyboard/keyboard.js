@@ -89,7 +89,9 @@ keyboard = createKeyboardKeys(5, 1, scale);
 keyboardWrapper.appendChild(keyboardHead);
 keyboardWrapper.appendChild(keyboard);
 
+let synthContainer = document.getElementById("synthContainer")
 
-document.body.appendChild(keyboardWrapper);
+synthContainer.appendChild(keyboardWrapper);
+document.body.appendChild(synthContainer);
 
 

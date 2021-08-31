@@ -1,6 +1,6 @@
 :root {
-  --octaveWidth:21rem;
-  --octaveHeight:10rem;
+  --octaveWidth:22rem;
+  --octaveHeight:12rem;
   --whiteHeight:var(--octaveHeight);
   --blackHeight:calc(var(--whiteHeight)/2);
   --whiteWidth:calc(var(--octaveWidth)/7);
@@ -30,8 +30,6 @@ button {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  margin: 3rem;
-  margin-top: 28rem;
 }
 
 .keyboardHead {
@@ -75,8 +73,6 @@ button {
 }
 
 .keyboardContainer .octave .white {
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
   background-image: -webkit-gradient(linear, left bottom, left top, from(#fff1), to(#ddd));
   background-image: linear-gradient(to top, #fff1, #ddd);
   border-bottom: 10px inset #eee9;
@@ -141,5 +137,12 @@ button {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+}
+
+.synthContainer {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  width: 100%;
 }
 /*# sourceMappingURL=keyboardStyle.css.map */

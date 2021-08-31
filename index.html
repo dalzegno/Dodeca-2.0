@@ -15,7 +15,7 @@
 </head>
     <body>
         <header>
-            <h1>DODECA 2.0</h1>
+            <h1>DODECA 0.2</h1>
         </header>
         <svg class="bgWaves" preserveAspectRatio="none"
             width="1591" height="1119" viewBox="0 0 1591 1119" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -26,7 +26,6 @@
             <path fill-rule="evenodd" clip-rule="evenodd" d="M504.262 398.335C386.435 346.696 236.865 325.644 26.5541 365.448L9.44592 275.052C234.385 232.481 403.315 253.647 541.191 314.072C678.008 374.032 779.74 470.816 872.674 570.283C893.101 592.146 913.131 614.124 933.049 635.981C1096.36 815.181 1252.24 986.226 1558.82 1018.5L1549.18 1110C1206.01 1073.87 1026.91 876.515 864.424 697.458C844.608 675.622 825.04 654.058 805.451 633.092C714.322 535.558 623.148 450.437 504.262 398.335Z" fill="#A6382E" stroke="#A6382E" stroke-width="16"/>
         </svg>
 
-        <div class="siteWrapper">
 
             <!-- TUNING CONTROLS-->
             <div class = "tuningContainer">
@@ -70,12 +69,15 @@
 
                 <div class="keyboard--sizeControl" 
                 id="keyboard--sizeControl" >
-                    <label id="lblSliderX" for ="sliderX">Size <--X-></label>
+                    <label id="lblSliderX" for ="sliderX">Size <--X--></label>
                     <input type="range" class="sliderX" id="sliderX"
                     min="13" max="25" step=".1" value="21">
-                    <label id="lblSliderY" for="sliderY"><--Y-></label>
+                   <!-- 
+                     <label id="lblSliderY" for="sliderY"><--Y-></label>
                     <input type="range" class="sliderY" id="sliderY"
                     min="5" max="20" step=".1" value="10">
+                 --> 
+                
                 </div>
 
                 <div id="volumeController"
@@ -176,14 +178,14 @@
 
                 
 
-            </div>
-          
 
-            <!-- SYNTHESIZER -->
-            <div class="container synthContainer">
-
-            </div>
+           
         
+        </div>
+
+         <!-- SYNTHESIZER -->
+         <div id="synthContainer" class="container synthContainer">
+
         </div>
     <!--     
         <svg id="svgsvg" height="100" width="500">

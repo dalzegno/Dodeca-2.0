@@ -3,8 +3,8 @@
 
 
     //--octaveWidth:clamp(10rem, 25vw, 15rem);
-    --octaveWidth:21rem;
-    --octaveHeight:10rem;
+    --octaveWidth:22rem;
+    --octaveHeight:12rem;
 
     --whiteHeight:var(--octaveHeight);
     --blackHeight:calc(var(--whiteHeight)/2);
@@ -34,9 +34,7 @@ button{
     display: flex;
     position: relative;
     width:fit-content;
-    margin:3rem;
     
-    margin-top:28rem;
 }
 ///////////////////////////////////////////////////////
 
@@ -71,7 +69,6 @@ button{
         width:var(--octaveWidth);
         position: relative;
         .white{
-            box-sizing: content-box;
             background-image: linear-gradient(to top, #fff1,#ddd);
             
             border-bottom: 10px inset #eee9;
@@ -130,3 +127,9 @@ button{
 
 
 
+.synthContainer{
+    position:absolute;
+    bottom:2rem;
+    left:2rem;
+    width:100%;
+}
