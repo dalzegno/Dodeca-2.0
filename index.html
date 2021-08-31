@@ -26,6 +26,9 @@
             <path fill-rule="evenodd" clip-rule="evenodd" d="M504.262 398.335C386.435 346.696 236.865 325.644 26.5541 365.448L9.44592 275.052C234.385 232.481 403.315 253.647 541.191 314.072C678.008 374.032 779.74 470.816 872.674 570.283C893.101 592.146 913.131 614.124 933.049 635.981C1096.36 815.181 1252.24 986.226 1558.82 1018.5L1549.18 1110C1206.01 1073.87 1026.91 876.515 864.424 697.458C844.608 675.622 825.04 654.058 805.451 633.092C714.322 535.558 623.148 450.437 504.262 398.335Z" fill="#A6382E" stroke="#A6382E" stroke-width="16"/>
         </svg>
 
+       <!--  <svg id="svgsvg" height="150" width="500">
+            <path d="M 10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80 S 240 10, 270 80"></path>
+         </svg> -->
 
             <!-- TUNING CONTROLS-->
             <div class = "tuningContainer">
@@ -67,18 +70,7 @@
             <div class="container soundControlContainer"
                 id= "soundControlContainer">
 
-                <div class="keyboard--sizeControl" 
-                id="keyboard--sizeControl" >
-                    <label id="lblSliderX" for ="sliderX">Size <--X--></label>
-                    <input type="range" class="sliderX" id="sliderX"
-                    min="13" max="25" step=".1" value="21">
-                   <!-- 
-                     <label id="lblSliderY" for="sliderY"><--Y-></label>
-                    <input type="range" class="sliderY" id="sliderY"
-                    min="5" max="20" step=".1" value="10">
-                 --> 
                 
-                </div>
 
                 <div id="volumeController"
                 class="container volumeContainer">
@@ -153,7 +145,7 @@
                         <input 
                          type = "checkbox" id="harmonizerCheckbox">
                         <label>Harmonizer</label>
-                        <input id="harmonizerSlider"
+                        <input id="harmonizerSlider" value="12"
                         type="range" min="-12" max="12">
                         <output></output>
                         <div id="hGainDiv">
@@ -171,7 +163,7 @@
                         <label for="aFrequencyRange">A frequency:</label>
                         <input id="aFrequencyRange" 
                         type="range" min="420" max="480"
-                        step=".2" value="432">
+                        step=".2" value="440">
                         <output></output>
                     </div>
                 </div>
@@ -185,14 +177,28 @@
 
          <!-- SYNTHESIZER -->
          <div id="synthContainer" class="container synthContainer">
-
         </div>
-    <!--     
-        <svg id="svgsvg" height="100" width="500">
-           <path d="M0,100 Q0,0,100,0 Q125,0,150,100 Q150,100,150,50
-           Q300,-40,300,100"></path>
-        </svg>
-         -->
+        <div id="bottomBar" class="bottomBar">
+            <div class="keyboard--sizeControl" 
+            id="keyboard--sizeControl" >
+                <label id="lblSliderX" for ="sliderX">Size <--X--></label>
+                <input type="range" class="sliderX" id="sliderX"
+                min="16.6" max="55" step=".1" value="16.6">
+               
+                 <label id="lblSliderY" for="sliderY"><--Y-></label>
+                <input type="range" class="sliderY" id="sliderY"
+                min="5" max="20" step=".1" value="10">
+
+                <div class="keyboardPosition">
+                    <label>Position</label>
+                    <input step=".1"
+                    id="keyboardPositionRange" type="range">
+                </div>
+            </div>
+        </div>
+        
+       
+        
 
    
 

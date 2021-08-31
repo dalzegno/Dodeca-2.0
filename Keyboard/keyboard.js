@@ -81,10 +81,10 @@ let soundControls = document.getElementById("soundControlContainer");
 keyboardHead.appendChild(soundControls);
 
 
-//var scale =  getEqualScale(9, 442);
-var scale = getJustScale(432,10,"C")
+var scale =  getEqualScale(11, 442);
+//var scale = getJustScale(432,11,"C")
 let keyboard;
-keyboard = createKeyboardKeys(5, 1, scale);
+keyboard = createKeyboardKeys(7, 1, scale);
 
 keyboardWrapper.appendChild(keyboardHead);
 keyboardWrapper.appendChild(keyboard);

@@ -1,16 +1,27 @@
 
 
 let sliderX = document.getElementById("sliderX");
-/* let sliderY = document.getElementById("sliderY");
+let sliderY = document.getElementById("sliderY");
 
 sliderY.oninput=()=>{
     document.documentElement.style
     .setProperty('--octaveHeight', sliderY.value+"rem");
     
-} */
+}
 sliderX.oninput=()=>{
     document.documentElement.style
     .setProperty('--octaveWidth', sliderX.value+"rem");
+}
+
+let positionSlider = document.getElementById("keyboardPositionRange");
+positionSlider.oninput=()=>{
+  let octaves = document.getElementsByClassName("octave");
+  let scaleX = (sliderX.value -sliderX.min);
+  console.log(positionSlider.value / scaleX);
+  for(i=0; i<octaves.length;i++){
+    //octaves[i].style.right = (positionSlider.value /12)* scaleX+"rem";
+    octaves[i].style.right = (positionSlider.value *sliderX.value/sliderX.min)+"rem";
+  }
 }
 
 

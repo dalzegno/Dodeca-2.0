@@ -34,6 +34,7 @@ label, output {
   height: 100%;
   color: white;
   font-size: 1.5rem;
+  margin-left: 1rem;
 }
 
 .soundControlContainer .volumeContainer * {
@@ -122,6 +123,10 @@ label, output {
   width: fit-content;
 }
 
+.soundControlContainer .waveTypeContainer .waveTypeBox label {
+  margin-bottom: .8rem;
+}
+
 .soundControlContainer .waveTypeContainer .waveTypeBox ul {
   list-style: none;
   display: -ms-grid;
@@ -148,6 +153,10 @@ label, output {
 .soundControlContainer .lfoContainer {
   width: 10%;
   height: 100%;
+}
+
+.soundControlContainer .lfoContainer label {
+  margin-bottom: .8rem;
 }
 
 .soundControlContainer .lfoContainer .lfoBox {
@@ -193,7 +202,7 @@ label, output {
 }
 
 .soundControlContainer .harmonizerContainer .harmonizerBox #harmonizerSlider {
-  margin-top: 1rem;
+  margin-top: 1.2rem;
 }
 
 .soundControlContainer .harmonizerContainer .harmonizerBox #hGainDiv {
@@ -231,49 +240,5 @@ label, output {
 
 .soundControlContainer .aPitchContainer .aPitchBox * {
   margin-top: 1rem;
-}
-
-.keyboard--sizeControl {
-  min-width: 8rem;
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  position: relative;
-}
-
-.keyboard--sizeControl #lblSliderX {
-  position: absolute;
-  bottom: 2rem;
-  left: 2rem;
-}
-
-.keyboard--sizeControl #sliderX {
-  position: absolute;
-  bottom: 1rem;
-  left: 1rem;
-  width: 6rem;
-}
-
-.keyboard--sizeControl #lblSliderY {
-  position: absolute;
-  top: 3rem;
-  left: 1rem;
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-}
-
-.keyboard--sizeControl .sliderY {
-  position: absolute;
-  top: 3rem;
-  height: 1rem;
-  width: 6rem;
-  left: -2rem;
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
 }
 /*# sourceMappingURL=sliders.css.map */

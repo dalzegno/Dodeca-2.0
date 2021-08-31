@@ -24,7 +24,7 @@ mainGainNode.connect(audioContext.destination);
 
 
 
-for (i=0; i<9; i++) {
+for (i=0; i<11; i++) {
     oscList[i] = {};
 }
 
@@ -35,11 +35,11 @@ for(i=0;i<50;i++){
   harmonizerGainList[i] = {};
 }
 
-for(i=0;i<9;i++){
+for(i=0;i<11;i++){
   harmonizerOscList[i] = {};
 }
 
-for(i=0;i<9;i++){
+for(i=0;i<11;i++){
   harmonizerActiveList[i] = {};
 }
 

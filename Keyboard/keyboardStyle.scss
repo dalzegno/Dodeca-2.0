@@ -3,8 +3,8 @@
 
 
     //--octaveWidth:clamp(10rem, 25vw, 15rem);
-    --octaveWidth:22rem;
-    --octaveHeight:12rem;
+    --octaveWidth:16.6rem;
+    --octaveHeight:10rem;
 
     --whiteHeight:var(--octaveHeight);
     --blackHeight:calc(var(--whiteHeight)/2);
@@ -13,8 +13,12 @@
     --blackWidth:calc(var(--whiteWidth)/2.3);
 
     --whiteKeyPress: whiteKeyPress 2s ease;
-}
 
+    --bottombarHeight:7rem;
+}
+body{
+    counter-reset: keyC;
+}
 
 button{
     cursor: pointer;
@@ -33,7 +37,7 @@ button{
 .keyboardWrapper{
     display: flex;
     position: relative;
-    width:fit-content;
+    width:100%;
     
 }
 ///////////////////////////////////////////////////////
@@ -42,9 +46,10 @@ button{
     position:absolute;
     display:flex;
     background-color: #253259f5;
-    top:-10rem;
-    height:10rem;
-    min-width:100%;
+    top:-12rem;
+    height:12rem;
+    
+    width:100%;
     border-radius: .3rem .3rem .1rem .1rem;
     //cursor:grab;
 }
@@ -55,6 +60,7 @@ button{
 .keyboardContainer{
     display: flex;
     width:fit-content;
+    min-width: 100vw;
     height: fit-content;
     background-color: #fff9;
     z-index: 20;
@@ -109,6 +115,18 @@ button{
             transition: border .1s ease,
             background-color .2s ease;
         }
+        .key1{
+            position: relative;
+        }
+        .key1::after{
+            position: absolute;
+            bottom:.1rem;
+            left:.3rem;
+            counter-increment: keyC;
+            content:"C"counter(keyC);
+            color:#0005;
+            
+        }
         
         .key2{
             left:calc(var(--whiteWidth) - var(--blackWidth)/2);
@@ -139,7 +157,57 @@ button{
 
 .synthContainer{
     position:absolute;
-    bottom:2rem;
-    left:2rem;
+    bottom:var(--bottombarHeight);
+    
+    left:0;
     width:100%;
+}
+
+.bottomBar{
+    position: absolute;
+    bottom:0;
+    height:var(--bottombarHeight);
+    width:100%;
+    .keyboard--sizeControl{
+        min-width: 8rem;
+        background-color: #fff3;
+        height:100%;
+        display: flex;
+        flex-direction: column;
+        position:relative;
+        #lblSliderX{
+            position: absolute;
+            bottom:1.5rem;
+            left:4rem;
+        }
+        #sliderX{
+            position: absolute;
+            bottom:.5rem;
+            left:4rem;
+            width:6rem;
+        }
+        
+        #lblSliderY{
+            position:absolute;
+            top:50%;
+            left:1rem;
+            transform:rotate(90deg);
+        }
+        .sliderY{
+            position:absolute;
+            top:40%;
+            height:1rem;
+            width:4rem;
+            left:0rem;
+            transform:rotate(270deg);
+        }
+
+        .keyboardPosition{
+            width:10rem;
+            position:absolute;
+            bottom:.3rem;
+            left:12rem;
+        }
+    }
+    
 }

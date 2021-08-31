@@ -1,11 +1,16 @@
 :root {
-  --octaveWidth:22rem;
-  --octaveHeight:12rem;
+  --octaveWidth:16.6rem;
+  --octaveHeight:10rem;
   --whiteHeight:var(--octaveHeight);
   --blackHeight:calc(var(--whiteHeight)/2);
   --whiteWidth:calc(var(--octaveWidth)/7);
   --blackWidth:calc(var(--whiteWidth)/2.3);
   --whiteKeyPress: whiteKeyPress 2s ease;
+  --bottombarHeight:7rem;
+}
+
+body {
+  counter-reset: keyC;
 }
 
 button {
@@ -27,9 +32,7 @@ button {
   display: -ms-flexbox;
   display: flex;
   position: relative;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+  width: 100%;
 }
 
 .keyboardHead {
@@ -38,9 +41,9 @@ button {
   display: -ms-flexbox;
   display: flex;
   background-color: #253259f5;
-  top: -10rem;
-  height: 10rem;
-  min-width: 100%;
+  top: -12rem;
+  height: 12rem;
+  width: 100%;
   border-radius: .3rem .3rem .1rem .1rem;
 }
 
@@ -51,6 +54,7 @@ button {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  min-width: 100vw;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -116,6 +120,19 @@ button {
   transition: border .1s ease, background-color .2s ease;
 }
 
+.keyboardContainer .octave .key1 {
+  position: relative;
+}
+
+.keyboardContainer .octave .key1::after {
+  position: absolute;
+  bottom: .1rem;
+  left: .3rem;
+  counter-increment: keyC;
+  content: "C" counter(keyC);
+  color: #0005;
+}
+
 .keyboardContainer .octave .key2 {
   left: calc(var(--whiteWidth) - var(--blackWidth)/2);
 }
@@ -153,8 +170,67 @@ button {
 
 .synthContainer {
   position: absolute;
-  bottom: 2rem;
-  left: 2rem;
+  bottom: var(--bottombarHeight);
+  left: 0;
   width: 100%;
+}
+
+.bottomBar {
+  position: absolute;
+  bottom: 0;
+  height: var(--bottombarHeight);
+  width: 100%;
+}
+
+.bottomBar .keyboard--sizeControl {
+  min-width: 8rem;
+  background-color: #fff3;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+}
+
+.bottomBar .keyboard--sizeControl #lblSliderX {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 4rem;
+}
+
+.bottomBar .keyboard--sizeControl #sliderX {
+  position: absolute;
+  bottom: .5rem;
+  left: 4rem;
+  width: 6rem;
+}
+
+.bottomBar .keyboard--sizeControl #lblSliderY {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.bottomBar .keyboard--sizeControl .sliderY {
+  position: absolute;
+  top: 40%;
+  height: 1rem;
+  width: 4rem;
+  left: 0rem;
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
+}
+
+.bottomBar .keyboard--sizeControl .keyboardPosition {
+  width: 10rem;
+  position: absolute;
+  bottom: .3rem;
+  left: 12rem;
 }
 /*# sourceMappingURL=keyboardStyle.css.map */

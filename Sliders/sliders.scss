@@ -26,6 +26,7 @@ label, output{
         height:100%;
         color:white;
         font-size: 1.5rem;
+        margin-left:1rem;
         *{
             margin-top: 1rem;
             width:100%;
@@ -82,7 +83,11 @@ label, output{
     /////////
     ////Waveforms
     .waveTypeContainer{
+
         .waveTypeBox{
+            label{
+                margin-bottom: .8rem;
+            }
             margin-top: 1rem;
             display: flex;
             flex-direction: column;
@@ -107,11 +112,14 @@ label, output{
     }
 
 
-    ///////  Vibrato
+    ///////  LFO Vibrato
 
     .lfoContainer{
         width:10%;
         height:100%;
+        label{
+            margin-bottom: .8rem;
+        }
         .lfoBox{
             margin-top: 1rem;
             display:flex;
@@ -145,7 +153,7 @@ label, output{
                 display: inline;
             }
             #harmonizerSlider{
-                margin-top:1rem;
+                margin-top:1.2rem;
             }
             #hGainDiv{
                 margin-top: 1rem;
@@ -180,38 +188,5 @@ label, output{
 }
 
 
-.keyboard--sizeControl{
-    min-width: 8rem;
-    height:100%;
-    display: flex;
-    flex-direction: column;
-    position:relative;
-    #lblSliderX{
-        position: absolute;
-        bottom:2rem;
-        left:2rem;
-    }
-    #sliderX{
-        position: absolute;
-        bottom:1rem;
-        left:1rem;
-        width:6rem;
-    }
-    
-    #lblSliderY{
-        position:absolute;
-        top:3rem;
-        left:1rem;
-        transform:rotate(90deg);
-    }
-    .sliderY{
-        position:absolute;
-        top:3rem;
-        height:1rem;
-        width:6rem;
-        left:-2rem;
-        transform:rotate(90deg);
-    }
-}
 
 
