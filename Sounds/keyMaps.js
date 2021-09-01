@@ -1,103 +1,7 @@
 let keypressList = [];
 
 
-function getKeysDown(option){
-  keys = [];
-  if(option == "upper"){
-keys = ['Digit1','KeyQ','Digit2','KeyW','Digit3',
-  'KeyE','Digit4','KeyR','Digit5','KeyT','Digit6','KeyY','Digit7',
-  'KeyU','Digit8','KeyI','Digit9','KeyO','Digit0','KeyP','Minus'];
-  }
-  else if(option == "lower"){
-keys = ['KeyA',
-'KeyZ','KeyS',
-'KeyX','KeyD',
-'KeyC','KeyF',
-'KeyV','KeyG',
-'KeyB','KeyH',
-'KeyN','KeyJ',
-'KeyM','KeyK',
-'Comma','KeyL',
-'Period','Semicolon',
-'Slash', 'Quote'];
-  }
-  return keys;
-}
 
-
-function createKeyMap(note, keysDownList){
-    keymap = new Array;
-    if(note == "C"){
-      keymap = [];
-    keymap = [
-        keysDownList[1], keysDownList[2], keysDownList[3], keysDownList[4],
-        keysDownList[5], keysDownList[7], keysDownList[8], keysDownList[9],
-        keysDownList[10], keysDownList[11], keysDownList[12], keysDownList[13],
-        keysDownList[15], keysDownList[16], keysDownList[17], keysDownList[18], keysDownList[19],
-    ]
-            }
-    else if(note == "D"){
-      keymap = [];
-        keymap = [
-            keysDownList[0], keysDownList[1], keysDownList[2], keysDownList[3],
-            keysDownList[5], keysDownList[6], keysDownList[7], keysDownList[8],
-            keysDownList[9], keysDownList[10], keysDownList[11],keysDownList[13],
-            keysDownList[14],keysDownList[15],keysDownList[16],keysDownList[17], keysDownList[19],
-            keysDownList[20], keysDownList[21]
-        ]
-    }
-    else if(note == "E"){
-      keymap = [];
-        keymap = [
-            keysDownList[0], keysDownList[1],keysDownList[3],keysDownList[4],
-            keysDownList[5],keysDownList[6], keysDownList[7],keysDownList[8],
-            keysDownList[9], keysDownList[11],keysDownList[12],keysDownList[13],
-            keysDownList[14],keysDownList[15], keysDownList[17],keysDownList[18],keysDownList[19],
-            keysDownList[20]
-        ]
-    }
-    else if(note == "F"){
-      keymap = [];
-        keymap = [
-            keysDownList[1], keysDownList[2],keysDownList[3],keysDownList[4],
-            keysDownList[5],keysDownList[6], keysDownList[7],keysDownList[9],
-            keysDownList[10], keysDownList[11],keysDownList[12],keysDownList[13],
-            keysDownList[15],keysDownList[16], keysDownList[17],keysDownList[18],keysDownList[19],
-            keysDownList[20]
-        ]
-    }
-    else if(note == "G"){
-      keymap = [];
-        keymap = [ keysDownList[0],
-            keysDownList[1], keysDownList[2],keysDownList[3],keysDownList[4],
-            keysDownList[5],keysDownList[7], keysDownList[8],keysDownList[9],
-            keysDownList[10], keysDownList[11],keysDownList[13],keysDownList[14],
-            keysDownList[15],keysDownList[16], keysDownList[17],keysDownList[18],keysDownList[19]
-        ]
-    }
-    
-    else if(note == "A"){
-      keymap = [];
-        keymap = [ keysDownList[0],
-            keysDownList[1], keysDownList[2],keysDownList[3],keysDownList[5],
-            keysDownList[6],keysDownList[7], keysDownList[8],keysDownList[9],
-            keysDownList[11], keysDownList[12],keysDownList[13],keysDownList[14],
-            keysDownList[15],keysDownList[16], keysDownList[17],keysDownList[19],keysDownList[20]
-        ]
-    }
-    
-    else if(note == "B"){
-      keymap = [];
-        keymap = [ keysDownList[0],
-            keysDownList[1], keysDownList[3],keysDownList[4],keysDownList[5],
-            keysDownList[6],keysDownList[7], keysDownList[9],keysDownList[10],
-            keysDownList[11], keysDownList[12],keysDownList[13],keysDownList[14],
-            keysDownList[15],keysDownList[17], keysDownList[18],keysDownList[19],
-            keysDownList[20],keysDownList[21]
-        ]
-    }
-    return keymap;
-}
 
   function createKeyBindings(note, octave, keymap){
     
@@ -118,36 +22,164 @@ for(let i = 0; i < keymap.length; i++){
         notenum = 0;
     }
  keypressList[keymap[i]] = [];
+ if(document.getElementById(`${octave}${notenum}`)!== null)
    keypressList[keymap[i]] = document.getElementById(`${octave}${notenum}`).dataset;
-    notenum++;
+    
+   notenum++;
     }
 
 }
 
-function createKeyMapEvents(keymaplist) {
+
+function createKeyMapEvents(keymaplist, keyDownEventList, keyUpEventList) {
+
   for(let i = 0; i < keymaplist.length; i++){
-      document.addEventListener('keydown', logkey);
-      function logkey(e){
-          if(e.code == keymaplist[i])
-          notePressed(e, keymaplist[i]);
+      keyDownEventList[i] = function logkey(e){
+      if(e.code == keymaplist[i]){
+      notePressed(e, keymaplist[i]);
+      
       }
+    }
+    
+    document.addEventListener('keydown', keyDownEventList[i],false );
+      
   }
     for(let i = 0; i < keymaplist.length; i++){
-        document.addEventListener('keyup', logkey);
-        function logkey(e){
-          if(e.code == keymaplist[i])
-          noteReleased(e);
-      }
+
+         keyUpEventList[i] = function logkey(e){
+            if(e.code == keymaplist[i])
+            noteReleased(e);
+        } 
+        document.addEventListener('keyup', keyUpEventList[i], false);
+        
     }
   }
 
+ 
 
-var keylistLower = getKeysDown("lower");
-var keymaplower = createKeyMap("C", keylistLower);
-createKeyBindings("C", 3, keymaplower);
-createKeyMapEvents(keymaplower);
 
-var keylistUpper = getKeysDown("upper");
-var keymap = createKeyMap("C", keylistUpper);
-createKeyBindings("C", 4, keymap);
-createKeyMapEvents(keymap);
+//CREATE KEY BINDINGS FOR UPPER KEYBOARD TYPINGS
+
+
+notepick1.addEventListener("change", () =>{
+    notepicker1();
+})
+octavePick1.addEventListener("change", ()=>{
+   octavepicker1();
+})
+
+function notepicker1(){
+  removeKeyMapEvents(keymap,removeUpperKeyDownEvents,removeUpperKeyUpEvents);
+    removeUpperKeyDownEvents = [];
+    removeUpperKeyUpEvents = [];
+
+    let note1 = notepick1.value;
+    let octave1 = octavePick1.value;
+    createTypingKeyMap("upper", notepick1.value, "1");
+    var keylistUpper = getKeysDown("upper");
+    var keymap = createKeyMap(note1, keylistUpper);
+    createKeyBindings(note1, octave1, keymap);
+    
+
+    createKeyMapEvents(keymap,removeUpperKeyDownEvents,removeUpperKeyUpEvents);
+
+}
+function octavepicker1(){
+    removeKeyMapEvents(keymap,removeUpperKeyDownEvents,removeUpperKeyUpEvents);
+    removeUpperKeyDownEvents = [];
+    removeUpperKeyUpEvents = [];
+
+    let note1 = notepick1.value;
+    let octave1 = octavePick1.value;
+    createTypingKeyMap("upper", notepick1.value, "1");
+    var keylistUpper = getKeysDown("upper");
+    var keymap = createKeyMap(note1, keylistUpper);
+    createKeyBindings(note1, octave1, keymap);
+    createKeyMapEvents(keymap,removeUpperKeyDownEvents,removeUpperKeyUpEvents);
+
+
+  }
+
+//CREATE KEY BINDINGS FOR LOWER KEYBOARD TYPINGS
+
+notepickA.addEventListener("change", () =>{
+    notepickerA();
+})
+octavePickA.addEventListener("change", ()=>{
+    octavepickerA();
+})
+
+function notepickerA(){
+  removeKeyMapEvents(keymap,removeLowerKeyDownEvents,removeLowerKeyUpEvents);
+  removeLowerKeyDownEvents = [];
+  removeLowerKeyUpEvents = [];
+
+    let noteA = notepickA.value;
+    let octaveA = octavePickA.value;
+    createTypingKeyMap("lower", notepickA.value, "A");
+    var keylistUpper = getKeysDown("lower");
+    var keymap = createKeyMap(noteA, keylistLower);
+    createKeyBindings(noteA, octaveA, keymap);
+    createKeyMapEvents(keymap,removeLowerKeyDownEvents,removeLowerKeyUpEvents);
+}
+function octavepickerA(){
+    removeKeyMapEvents(keymap,removeLowerKeyDownEvents,removeLowerKeyUpEvents);
+    removeLowerKeyDownEvents = [];
+    removeLowerKeyUpEvents = [];
+
+
+    let noteA = notepickA.value;
+    let octaveA = octavePickA.value;
+    createTypingKeyMap("lower", notepickA.value, "A");
+    var keylistLower = getKeysDown("lower");
+    var keymap = createKeyMap(noteA, keylistLower);
+    createKeyBindings(noteA, octaveA, keymap);
+    createKeyMapEvents(keymap,removeLowerKeyDownEvents,removeLowerKeyUpEvents);
+}
+
+
+
+
+
+
+
+function removeKeyMapEvents(keymaplist,removeKeyupList, removeKeydownList) {
+
+  for(let i = 0; i < removeKeyupList.length; i++){
+    
+    document.removeEventListener('keydown', removeKeyupList[i],false );
+      
+  }
+    for(let i = 0; i < removeKeydownList.length; i++){
+        document.removeEventListener('keyup', removeKeydownList[i],false);
+        
+      }
+    }
+  
+  let removeUpperKeyDownEvents = [];
+  let removeUpperKeyUpEvents = [];
+  let removeLowerKeyDownEvents = [];
+  let removeLowerKeyUpEvents = [];
+
+  var keylistLower = getKeysDown("lower");
+  var keymaplower = createKeyMap("C", keylistLower);
+  createKeyBindings("C", 4, keymaplower);
+  createKeyMapEvents(keymaplower, removeLowerKeyDownEvents, removeLowerKeyUpEvents);
+
+  var keylistUpper = getKeysDown("upper");
+  var keymap = createKeyMap("C", keylistUpper);
+  createKeyBindings("C", 3, keymap);
+  createKeyMapEvents(keymap,removeUpperKeyDownEvents,removeUpperKeyUpEvents);
+
+
+
+  octavePick1.onkeydown = function(e) {
+    if (!e) {
+      e = window.event;
+    }
+    if (e.keyCode >= 65 && e.keyCode <= 90) // A to Z
+    {
+      e.returnValue = false;
+      e.cancel = true;
+    }
+  };
