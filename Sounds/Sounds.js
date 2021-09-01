@@ -7,6 +7,8 @@ let harmonizerActiveList = [];
 
 let harmonizerChecked = document.getElementById("harmonizerCheckbox");
 harmonizerChecked.checked = 0;
+let delayChecked = document.getElementById("delayCheckbox");
+delayChecked.checked = 0;
 
 let harmonizerGainAmount = document.getElementById("harmonizerGain").value;
 let harmonizerOutOfBounds;
