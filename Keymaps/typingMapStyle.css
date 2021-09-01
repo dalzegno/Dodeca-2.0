@@ -7,15 +7,24 @@
     transform:scale(1.3);
     
 }
+
+.keyMapContainer{
+    position:absolute;
+    display:flex;
+    justify-content: end;
+    height:-50%;
+    width:fit-content;
+    right:0;
+    bottom:0;
+}
 #kmapLow{
-    position: absolute;
-    right:28%;
+    right:5rem;
    
 }
 #kmapUpper{
-    position: absolute;
-    right:55%;
+    right:10rem;
 }
+
 .whiteContainer{
     position:absolute;
     bottom:0px;

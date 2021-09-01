@@ -1,5 +1,5 @@
 :root {
-  --octaveWidth:15.2rem;
+  --octaveWidth:16.6rem;
   --octaveHeight:9rem;
   --whiteHeight:var(--octaveHeight);
   --blackHeight:calc(var(--whiteHeight)/2);

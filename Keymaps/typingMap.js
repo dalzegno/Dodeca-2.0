@@ -112,8 +112,13 @@ var kmapContainerLow =document.createElement("div");
 kmapContainerLow.className = "keyboardMap kmapLow";
 kmapContainerLow.setAttribute("id", "kmapLow");
 
-document.getElementById("bottomBar").appendChild(kmapContainer);
-document.getElementById("bottomBar").appendChild(kmapContainerLow);
+let keyMapContainer =document.createElement("div");
+keyMapContainer.className = "keyMapContainer";
+
+keyMapContainer.appendChild(kmapContainer);
+keyMapContainer.appendChild(kmapContainerLow);
+
+document.getElementById("bottomBar").appendChild(keyMapContainer);
 /* 
 document.body.appendChild(kmapContainer);
 document.body.appendChild(kmapContainerLow);
