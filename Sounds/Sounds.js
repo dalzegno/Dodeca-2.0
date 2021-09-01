@@ -211,7 +211,7 @@ function notePressed_Gain(gainNode, gainAmount){
                     harmonizerKey.className = harmonizerKey.className.replace("inactive", "active");
                     }
 
-                    notePressed_Gain(noteGain,1);
+                    notePressed_Gain(noteGain,noteGainSlider.value);
                     
 
                     
@@ -265,7 +265,7 @@ function notePressed_Gain(gainNode, gainAmount){
 
       
       
-      noteReleased_Gain(noteGain, 1, noteOscillator);
+      noteReleased_Gain(noteGain, noteGainSlider.value, noteOscillator);
 
       noteReleased_Gain(harmonizerGain, harmonizerGainAmount, harmonizerOscillator);
 

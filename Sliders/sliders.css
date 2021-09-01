@@ -42,10 +42,40 @@ label, output {
   font-size: 1.5rem;
 }
 
+.soundControlContainer .volumeContainer label {
+  margin-top: 1rem;
+}
+
 .soundControlContainer .volumeContainer * {
   margin-left: 1rem;
-  margin-top: 1rem;
   width: 100%;
+}
+
+.soundControlContainer .volumeContainer .noteGain {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  font-size: 1rem;
+}
+
+.soundControlContainer .volumeContainer .noteGain * {
+  margin: 0;
+}
+
+.soundControlContainer .volumeContainer .noteGain label {
+  margin-top: 1rem;
+}
+
+.soundControlContainer .volumeContainer .noteGain input[type=range] {
+  margin-left: 1rem;
 }
 
 .soundControlContainer .ADSRcontainer {

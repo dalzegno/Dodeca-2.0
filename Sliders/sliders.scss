@@ -21,6 +21,7 @@ label, output{
         padding-right:1rem;
     }
     .volumeContainer{
+        
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -30,10 +31,31 @@ label, output{
         color:white;
         background-color: #fff1;
         font-size: 1.5rem;
+        label{
+            
+            margin-top: 1rem;
+        }
         *{
             margin-left: 1rem;
-            margin-top: 1rem;
             width:100%;
+        }
+        .noteGain{
+            
+            display:flex;
+            *{
+                margin:0;
+            }
+            flex-direction: column;
+            align-items: center;
+            height:100%;
+            font-size: 1rem;
+            label{
+                
+            margin-top: 1rem;
+            }
+            input[type=range]{
+                margin-left:1rem;
+            }
         }
     }
     ///// ADSR

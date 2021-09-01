@@ -100,10 +100,16 @@
 
                 <div id="volumeController"
                 class="container volumeContainer">
-                    <label for="volumeRange">Volume</label>
+                    <label for="volumeRange">Main Volume</label>
                     <input type="range" id="volumeRange"
                     min="0" max="1" step="0.01">
                     <output id ="volumeOutput"></output>
+                    <div class="noteGain">
+                        <label>Gain</label>
+                        <input id="noteGain" type="range"
+                        min="0" max="1" step="0.01" value="1">
+                        <output></output>
+                    </div>
                 </div>
 
                 <div class="container ADSRcontainer">
@@ -158,7 +164,7 @@
                                 <output></output>
                             </div>
                             <div class="vibratoSliderBox">
-                                <label>Amount</label>
+                                <label>Depth</label>
                                 <input id="vibratoAmount" type="range"
                                 step =".01" min=0 max=50 value="0">
                                 <output></output>

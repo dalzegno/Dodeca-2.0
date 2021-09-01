@@ -28,7 +28,7 @@ positionSlider.oninput=()=>{
 
 //Sound controls
 
-
+//Volune
 let volumeControl = document.getElementById("volumeRange");
 let volumeOutput = document.getElementById("volumeOutput");
 volumeOutput.innerHTML = Math.floor(volumeControl.value * 100) + "%";
@@ -37,6 +37,12 @@ volumeControl.oninput=()=>{
     mainGainNode.gain.setValueAtTime(mainGainNode.gain.value, audioContext.currentTime);
     mainGainNode.gain.linearRampToValueAtTime(volumeControl.value, audioContext.currentTime + 0.1);
     mainGainNode.gain.value = volumeControl.value;
+}
+
+let noteGainSlider = document.getElementById("noteGain");
+noteGainSlider.nextElementSibling.value = Math.floor(noteGainSlider.value *100) + "%";
+noteGainSlider.oninput=()=>{
+  noteGainSlider.nextElementSibling.value = Math.floor(noteGainSlider.value *100) + "%";
 }
 
 
