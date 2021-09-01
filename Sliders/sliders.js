@@ -155,7 +155,6 @@ attackSlider.oninput=()=>{
     delayGainSlider.previousElementSibling.value=Math.floor(delayGainSlider.value *100)+"%" ;
    
   }
-
   let delayLoopCheckbox = document.getElementById("loopDelayCheckbox");
   delayLoopCheckbox.onchange=()=>{
     if(delayLoopCheckbox.checked == false){
@@ -168,7 +167,10 @@ attackSlider.oninput=()=>{
       }
       delayList = [];
       
+      let looplist =document.getElementById("looperList")
+      looplist.innerHTML="";
     console.log("unchecked")
     
     }
   }
+  

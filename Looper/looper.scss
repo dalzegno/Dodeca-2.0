@@ -1,0 +1,46 @@
+.looperContainer{
+    display:flex;
+    justify-content: start;
+    align-items: start;
+    
+    .looperBox{
+        height:15rem;
+        width:100rem;
+        display:flex;
+        ul{
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            width:100%;
+            li{
+                border:.4rem inset #fff3;
+                box-sizing: content-box;
+                width:8rem;
+                height:4rem;
+                position:relative;
+                background-color: #000;
+                color:white;
+                label{
+                    font-size: 1rem;
+                }
+                button{
+                    border:none;
+                    background-color: #fff9;
+                    margin-right: 1rem;
+                }
+                .loopRange{
+                    label{
+                        font-size: 1rem;
+                        margin-right: .5rem;
+                    }
+                    
+                    input[type=range]{
+                        height:.1rem;
+                        width:4rem;
+                        transform: scaleY(.5);
+                    }
+                }
+            }
+        }
+    }
+}

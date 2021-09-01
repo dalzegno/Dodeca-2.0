@@ -121,31 +121,7 @@ function notePressed_Gain(gainNode, gainAmount){
 
   
 
-  if(delayCheckbox.checked ==true){
-    delay = audioContext.createDelay(11);
-    feedback = audioContext.createGain();
-    delayGain = audioContext.createGain();
-    if(delayList.length == 0)
-      delayItem=0;
-      else
-    delayItem=delayList.length ++;
-
-    delayList[delayItem] = [delay, feedback, delayGain];
-
-   delayList[delayItem][0].delayTime.value = delayTimeSlider.value;
-  delayList[delayItem][1].gain.value = delayFeedbackSlider.value;
-  delayList[delayItem][2].gain.value = delayGainSlider.value;
- 
-  delayList[delayItem][0].connect(delayList[delayItem][1]);
-  delayList[delayItem][1].connect(delayList[delayItem][0]);
-    
-  delayList[delayItem][0].connect( delayList[delayItem][2]);
-    gainNode.connect(delayList[delayItem][0]);
-    delayList[delayItem][2].connect(mainGainNode)
-  console.log("Feedback" +delay.delayTime.value)
-
-  console.log(delayList)
-  }
+  createLoop(gainNode);
 
   
 
@@ -351,10 +327,9 @@ function notePressed_Gain(gainNode, gainAmount){
     
     }
     
-    //oscillator.stop(audioContext.currentTime + attackTime + decayTime + releaseTime +1);
-
+    oscillator.stop(audioContext.currentTime + attackTime + decayTime + releaseTime +1);
     
-   
+    
   }
 
 
