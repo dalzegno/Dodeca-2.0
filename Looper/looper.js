@@ -1,3 +1,9 @@
+const dodecaSvg = document.getElementById("dodecaSvg");
+let dodecaSize = dodecaSvg.getTotalLength();
+dodecaSvg.setAttribute("stroke-dasharray", dodecaSize);
+dodecaSvg.setAttribute("stroke-dashoffset", dodecaSize);
+
+
 function createLoop(gainNode){
 
     if(delayCheckbox.checked ==true){

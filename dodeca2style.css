@@ -1,3 +1,35 @@
+.dodecaSvg {
+  margin: 1rem;
+}
+
+#dodecaSvg {
+  fill: #0000;
+  stroke: white;
+  stroke-width: .05rem;
+  -webkit-animation: fillIn 10s linear forwards;
+          animation: fillIn 10s linear forwards;
+}
+
+@-webkit-keyframes fillIn {
+  30% {
+    fill: white;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    fill: white;
+  }
+}
+
+@keyframes fillIn {
+  30% {
+    fill: white;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    fill: white;
+  }
+}
+
 html {
   font-size: 120%;
   font-family: monospace;
@@ -20,7 +52,7 @@ body {
     pink 90deg 180deg
     );
     background-size: 25rem 25rem; */
-  background-image: linear-gradient(60deg, #6a82cc, #3c69f0);
+  background-image: linear-gradient(60deg, #5f75b8, #335bd1);
   background-blend-mode: color-burn;
 }
 
@@ -34,6 +66,27 @@ body {
   height: 90vh;
   width: 150vw;
   margin-left: -10rem;
+  /* 
+    :nth-child(1){
+        fill: #ff6355;
+        stroke: #ff6355;
+    }
+    :nth-child(2){
+        fill:#fba949;
+        stroke:#fba949;
+    }
+    :nth-child(3){
+        fill:#fae442;
+        stroke:#fae442;
+    }
+    :nth-child(4){
+        fill:#8bd448;
+        stroke:#8bd448;
+    }
+    :nth-child(5){
+        fill: #2696d6;
+        stroke:#2696d6;;
+    } */
 }
 
 .bgWaves path {
